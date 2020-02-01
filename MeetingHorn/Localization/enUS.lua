@@ -1,10 +1,10 @@
 ---@class MeetingHornLocale
-local L = LibStub('AceLocale-3.0'):NewLocale('MeetingHorn', 'zhCN')
+local L = LibStub('AceLocale-3.0'):NewLocale('MeetingHorn', 'enUS')
 if not L then
     return
 end
 
-L.ADDON_NAME = '集结号'
+L.ADDON_NAME = 'MeetingHorn'
 
 L['Leader'] = '队长'
 L['Comment'] = '说明'
