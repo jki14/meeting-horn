@@ -105,10 +105,10 @@ L.HELP_COMMENT = [[|cffffd100使用说明|r
 4. 在设置中可以添加或者隐藏集结号的悬浮窗，同样也可以设置快捷键快速调出集结号界面。]]
 
 L['CHANNEL: Port'] = '传送频道'
-L['CHANNEL: Trade'] = '交易'
+L['CHANNEL: Trade'] = 'Trade'
 L['CHANNEL: Group'] = 'MeetingHorn'
-L['CHANNEL: LFG'] = '寻求组队'
-L['CHANNEL: Recruit'] = '公会招募'
+L['CHANNEL: LFG'] = 'LookingForGroup'
+L['CHANNEL: Recruit'] = 'GuildRecruitment'
 
 L['Wild PvP'] = '野外PvP'
 L['Dire Maul - North'] = '厄运之槌 - 北' -- 厄运之槌 - 北
