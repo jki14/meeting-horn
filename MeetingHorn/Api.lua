@@ -45,7 +45,7 @@ local BASE_TIMEOUT = 90
 
 local function category(path, name, channel, interval, timeout, inCity)
     if not channel then
-        channel = {L['CHANNEL: Group'], '寻求组队'}
+        channel = {L['CHANNEL: Group'], L['CHANNEL: LFG']}
     end
 
     local channels = {}

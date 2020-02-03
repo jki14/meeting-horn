@@ -107,6 +107,7 @@ L.HELP_COMMENT = [[|cffffd100使用说明|r
 L['CHANNEL: Port'] = '传送频道'
 L['CHANNEL: Trade'] = '交易'
 L['CHANNEL: Group'] = 'MeetingHorn'
+L['CHANNEL: LFG'] = '寻求组队'
 L['CHANNEL: Recruit'] = '公会招募'
 
 L['Wild PvP'] = '野外PvP'
