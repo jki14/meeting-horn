@@ -146,6 +146,10 @@ function Browser:Constructor()
             GameTooltip:AddLine(format('%s |cff%02x%02x%02x%s|r', LEVEL, color.r * 255, color.g * 255, color.b * 255,
                                        item:GetLeaderLevel()), 1, 1, 1)
         end
+        local Race = item:GetLeaderLocRace()
+        if Race then
+            GameTooltip:AddLine(item:GetLeaderLocRace(), 1, 1, 1, true)
+        end
         local class = item:GetLeaderLocClass()
         if class then
             GameTooltip:AddLine(item:GetLeaderLocClass(), 1, 1, 1, true)
