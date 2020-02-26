@@ -32,6 +32,7 @@ L['SHAMAN'] = '萨满祭司'
 L['WARLOCK'] = '术士'
 L['DRUID'] = '德鲁伊'
 L['ROGUE'] = '盗贼'
+L['PALADIN'] = '圣骑士'
 
 L['Help'] = '帮助'
 L['Manage'] = '管理'
