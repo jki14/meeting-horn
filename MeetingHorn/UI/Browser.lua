@@ -146,9 +146,9 @@ function Browser:Constructor()
             GameTooltip:AddLine(format('%s |cff%02x%02x%02x%s|r', LEVEL, color.r * 255, color.g * 255, color.b * 255,
                                        item:GetLeaderLevel()), 1, 1, 1)
         end
-        local class= item:GetLeaderClass()
+        local class = item:GetLeaderLocClass()
         if class then
-            GameTooltip:AddLine(L[item:GetLeaderClass()], 1, 1, 1, true)
+            GameTooltip:AddLine(item:GetLeaderLocClass(), 1, 1, 1, true)
         end
         GameTooltip:AddLine(item:GetComment(), 0.6, 0.6, 0.6, true)
         GameTooltip:AddLine(' ')
