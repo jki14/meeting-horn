@@ -122,10 +122,16 @@
                         <Anchor point="LEFT" relativeKey="$parent.Members" relativePoint="RIGHT" />
                     </Anchors>
                 </FontString>
+                <FontString parentKey="Class" wordwrap="false" inherits="GameFontHighlightSmallLeft">
+                    <Size x="110" />
+                    <Anchors>
+                        <Anchor point="LEFT" relativeKey="$parent.Leader" relativePoint="RIGHT" />
+                    </Anchors>
+                </FontString>
                 <FontString parentKey="Comment" wordwrap="false" inherits="GameFontHighlightSmallLeft">
                     <Size x="400" />
                     <Anchors>
-                        <Anchor point="LEFT" relativeKey="$parent.Leader" relativePoint="RIGHT" />
+                        <Anchor point="LEFT" relativeKey="$parent.Class" relativePoint="RIGHT" />
                     </Anchors>
                 </FontString>
                 <FontString parentKey="State" wordwrap="false" inherits="GameFontHighlightSmallLeft">
@@ -231,7 +237,7 @@
         </HighlightTexture>
     </Button>
     <Button name="MeetingHornMainPanel" toplevel="true" parent="UIParent" movable="true" clampedToScreen="true" enableMouse="true" hidden="true" inherits="PortraitFrameTemplate">
-        <Size x="818" y="424"/>
+        <Size x="928" y="424"/>
         <Layers>
             <Layer level="BORDER" textureSubLevel="1">
                 <Texture name="$parentBtnCornerLeft" inherits="UI-Frame-BtnCornerLeft">
@@ -353,15 +359,21 @@
                         </Anchors>
                     </Button>
                     <Button parentKey="Header5" inherits="ColumnDisplayButtonTemplate" id="5">
-                        <Size x="290" y="24" />
+                        <Size x="110" y="24" />
                         <Anchors>
                             <Anchor point="LEFT" relativeKey="$parent.Header4" relativePoint="RIGHT" />
                         </Anchors>
                     </Button>
                     <Button parentKey="Header6" inherits="ColumnDisplayButtonTemplate" id="6">
-                        <Size x="150" y="24" />
+                        <Size x="290" y="24" />
                         <Anchors>
                             <Anchor point="LEFT" relativeKey="$parent.Header5" relativePoint="RIGHT" />
+                        </Anchors>
+                    </Button>
+                    <Button parentKey="Header7" inherits="ColumnDisplayButtonTemplate" id="7">
+                        <Size x="150" y="24" />
+                        <Anchors>
+                            <Anchor point="LEFT" relativeKey="$parent.Header6" relativePoint="RIGHT" />
                             <Anchor point="BOTTOMRIGHT" relativeKey="$parent.ActivityList" relativePoint="TOPRIGHT" x="0" y="5" />
                         </Anchors>
                     </Button>
