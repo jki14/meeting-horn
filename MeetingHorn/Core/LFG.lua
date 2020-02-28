@@ -7,7 +7,6 @@ local ADDON_NAME, ns = ...
 
 local L = ns.L
 local AceSerializer = LibStub('AceSerializer-3.0')
-
 ---@class MeetingHornLFG
 ---@field private current MeetingHornActivity
 ---@field private activities MeetingHornActivity[]
@@ -59,7 +58,11 @@ function LFG:OnEnable()
     self.idleTimer = ns.Timer:New(function()
         return self:OnIdleTimer()
     end)
-    self.idleTimer:Start(5)
+    -- print(ns.Addon.db.profile.options['idleTimer'])
+    if ns.Addon.db.profile.options['idleTimer']==true then
+        self.idleTimer:Start(5)
+    end
+
 
     self:RegisterEvent('CHAT_MSG_CHANNEL')
     -- self:RegisterEvent('CHAT_MSG_WHISPER')
@@ -114,7 +117,7 @@ function LFG:OnEnable()
         self:ZONE_CHANGED_NEW_AREA()
     end)
 
-    C_Timer.After(5, function()
+    C_Timer.After(10, function()
         self:ZONE_CHANGED_NEW_AREA()
     end)
 
