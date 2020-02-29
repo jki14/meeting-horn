@@ -110,24 +110,6 @@ L['CHANNEL: Group'] = 'MeetingHorn'
 L['CHANNEL: LFG'] = 'LookingForGroup'
 L['CHANNEL: Recruit'] = 'GuildRecruitment'
 
-L['Wild PvP'] = '野外PvP'
-L['Dire Maul - North'] = '厄运之槌 - 北' -- 厄运之槌 - 北
-L['Dire Maul - West'] = '厄运之槌 - 西' -- 厄运之槌 - 西
-L['Dire Maul - East'] = '厄运之槌 - 东' -- 厄运之槌 - 东
-L['Upper Blackrock Spire'] = '黑石塔上层' -- 黑石塔上层
-L['Lower Blackrock Spire'] = '黑石塔下层' -- 黑石塔下层
-L['Scarlet Monastery - Cathedral'] = '血色修道院 - 大教堂' -- 血色修道院 - 大教堂
-L['Scarlet Monastery - Armory'] = '血色修道院 - 军械库' -- 血色修道院 - 军械库
-L['Scarlet Monastery - Library'] = '血色修道院 - 图书馆' -- 血色修道院 - 图书馆
-L['Scarlet Monastery - Graveyard'] = '血色修道院 - 墓地' -- 血色修道院 - 墓地
-
-L['Lord Kazzak'] = '卡扎克' -- 卡扎克
-L['Azuregos'] = '艾索雷葛斯' -- 艾索雷葛斯
-L['Ysondre'] = '伊森德雷' -- 伊森德雷
-L['Taerar'] = '泰拉尔' -- 泰拉尔
-L['Emeriss'] = '艾莫莉丝' -- 艾莫莉丝
-L['Lethon'] = '莱索恩' -- 莱索恩
-
 L['SHORT: Molten Core'] = 'MC' -- 熔火之心
 L['SHORT: Onyxia\'s Lair'] = '黑龙' -- 奥妮克希亚的巢穴
 L['SHORT: Blackwing Lair'] = 'BWL' -- 黑翼之巢
