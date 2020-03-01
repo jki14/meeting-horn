@@ -6,80 +6,79 @@ end
 
 L.ADDON_NAME = 'MeetingHorn'
 
-L['Leader'] = '队长'
-L['Comment'] = '说明'
-L['Operation'] = '操作'
+L['Leader'] = 'Leader'
+L['Comment'] = 'Comment'
+L['Operation'] = 'Operation'
 
-L['Activity'] = '活动类型'
-L['Activity Mode'] = '活动模式'
-L['Mode'] = '模式'
-L['Activity Comment'] = '活动说明'
-L['Manage Activity'] = '管理活动'
-L['Choice Activity...'] = '选择活动类型...'
-L['Choice Mode...'] = '选择活动模式...'
-L['Create Activity'] = '创建活动'
-L['Search Activity'] = '查找活动'
-L['Close Activity'] = '解散活动'
-L['Update Activity'] = '更新活动'
-L['Members'] = '队伍人数'
-L['Whisper'] = '密语'
+L['Activity'] = 'Activity'
+L['Activity Mode'] = 'Activity Mode'
+L['Mode'] = 'Mode'
+L['Activity Comment'] = 'Activity Comment'
+L['Manage Activity'] = 'Manage Activity'
+L['Choice Activity...'] = 'Choice Activity...'
+L['Choice Mode...'] = 'Choice Mode...'
+L['Create Activity'] = 'Create Activity'
+L['Search Activity'] = 'Search Activity'
+L['Close Activity'] = 'Close Activity'
+L['Update Activity'] = 'Update Activity'
+L['Members'] = 'Members'
+L['Whisper'] = 'Whisper'
 
-L['Help'] = '帮助'
-L['Manage'] = '管理'
-L['Chat Record'] = '聊天记录'
-L['Feedback'] = '用户反馈'
-L['Feedback was submitted successfully.'] = '提交反馈成功。'
-L['Requires Level %s'] = '需要等级%s'
-L['Requires Class %s'] = '需要职业%s'
-L['Requires Zone City'] = '需要处于城市中'
+L['Help'] = 'Help'
+L['Manage'] = 'Manage'
+L['Chat Record'] = 'Chat Record'
+L['Feedback'] = 'Feedback'
+L['Feedback was submitted successfully.'] = 'Feedback was submitted successfully.'
+L['Requires Level %s'] = 'Requires Level %s'
+L['Requires Class %s'] = 'Requires Class %s'
+L['Requires Zone City'] = 'Requires Zone City'
 
--- 活动
+-- Activity
 
-L.CATEGORY_QUEST = '任务'
-L.CATEGORY_RAID = '团队副本'
-L.CATEGORY_DUNGEON = '地下城'
-L.CATEGORY_BOSS = '世界首领'
+L.CATEGORY_QUEST = 'Quest'
+L.CATEGORY_RAID = 'Raid'
+L.CATEGORY_DUNGEON = 'Dungeon'
+L.CATEGORY_BOSS = 'WorldBoss'
 L.CATEGORY_PVP = 'PvP'
-L.CATEGORY_PORT = '传送门'
-L.CATEGORY_SUMMON = '召唤仪式'
-L.CATEGORY_RECRUIT = '招募'
+L.CATEGORY_PORT = 'Port'
+L.CATEGORY_SUMMON = 'Summon'
+L.CATEGORY_RECRUIT = 'Recruit'
 
-L.SUMMARY_NEW_VERSION = [[|cff00ffff%s|r：
-发现新版本：%s，请及时下载更新
-下载链接：%s]]
+L.SUMMARY_NEW_VERSION = [[|cff00ffff%s|r:
+The new version found: %s
+Please consider download from: %s]]
 
--- L['Quest'] = '任务'
--- L['Raid'] = '团队副本'
--- L['Dungeon'] = '地下城'
--- L['Boss'] = '世界首领'
+-- L['Quest'] = 'Quest'
+-- L['Raid'] = 'Raid'
+-- L['Dungeon'] = 'Dungeon'
+-- L['Boss'] = 'Boss'
 -- L['PvP'] = true
--- L['Trade'] = '交易'
+-- L['Trade'] = 'Trade'
 
-L['Sell'] = '出售'
-L['Buy'] = '购买'
+L['Sell'] = 'Sell'
+L['Buy'] = 'Buy'
 
-L['<Double-Click> Whisper to player'] = '<双击>密语'
-L['<Right-Click> Open activity menu'] = '<右键>打开活动菜单'
-L['(Include channel message)'] = '(包含频道聊天)'
-L['Applicanted'] = '已申请'
+L['<Double-Click> Whisper to player'] = '<Double-Click> Whisper to player'
+L['<Right-Click> Open activity menu'] = '<Right-Click> Open activity menu'
+L['(Include channel message)'] = '(Include channel message)'
+L['Applicanted'] = 'Applicanted'
 
-L['|cff00ffff%s|r instance already exists, continue to create?'] = '|cff00ffff%s|r进度已存在，继续创建？'
-L['Update activity success.'] = '更新活动成功。'
-L['Create acitivty success.'] = '创建活动成功。'
-L['Activity closed.'] = '活动已解散。'
-L['There are no activity, please try searching.'] =
-    '当前没有集结号活动，\n请尝试在上方搜索框中直接搜索关键字。'
-L['Receiving active data, please wait patiently'] = '正在接收活动数据，请耐心等待 ...'
+L['|cff00ffff%s|r instance already exists, continue to create?'] = '|cff00ffff%s|r instance already exists, continue to create?'
+L['Update activity success.'] = 'Update activity success.'
+L['Create acitivty success.'] = 'Create acitivty success.'
+L['Activity closed.'] = 'Activity closed.'
+L['There are no activity, please try searching.'] = 'There are no activity, please try searching.'
+L['Receiving active data, please wait patiently'] = 'Receiving active data, please wait patiently'
 
-L['Applicant Count'] = '申请人数'
-L['Application Count'] = '申请中活动'
-L['Activity Count'] = '活动总数'
+L['Applicant Count'] = 'Applicant Count'
+L['Application Count'] = 'Application Count'
+L['Activity Count'] = 'Activity Count'
 
-L['Toggle MeetingHorn'] = '打开/关闭集结号'
-L['Toggle MeetingHorn key binding'] = '打开/关闭集结号快捷键'
+L['Toggle MeetingHorn'] = 'Toggle MeetingHorn'
+L['Toggle MeetingHorn key binding'] = 'Toggle MeetingHorn key binding'
 L['按键已绑定到|cffffd100%s|r，你确定要覆盖吗？'] = true
 
-L['Options'] = '设置'
+L['Options'] = 'Options'
 L['启用关键字过滤'] = true
 L['关键字过滤'] = true
 L['导入'] = true
@@ -95,8 +94,8 @@ L['删除失败，关键字错误。'] = true
 L['删除失败，关键字“%s”不存在。'] = true
 L['删除成功，关键字“%s”已删除。'] = true
 
-L['Show data broker'] = '显示悬浮窗'
-L['Hide activity in chat frame'] = '隐藏聊天窗口内的集结号活动'
+L['Show data broker'] = 'Show data broker'
+L['Hide activity in chat frame'] = 'Hide activity in chat frame'
 
 L.HELP_COMMENT = [[|cffffd100使用说明|r
 1. 集结号刚打开的时候是有短暂收集数据的时间，还请您耐心等待。
