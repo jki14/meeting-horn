@@ -215,7 +215,7 @@ local ACTIVITY_LIST = { --
     dungeon('Dire Maul - East', 56), -- 厄运之槌 - 东
     dungeon('Upper Blackrock Spire', 57, 10), -- 黑石塔上层
     dungeon('Lower Blackrock Spire', 57), -- 黑石塔下层
-    dungeon(1584, 50), -- 黑石深渊
+    dungeon(1584, 48), -- 黑石深渊
     dungeon(1477, 44), -- 阿塔哈卡神庙
     dungeon(2100, 40), -- 玛拉顿
     dungeon(1176, 43), -- 祖尔法拉克
@@ -229,7 +229,7 @@ local ACTIVITY_LIST = { --
     dungeon(721, 29), -- 诺莫瑞根
     dungeon(717, 24), -- 监狱
     dungeon(719, 23), -- 黑暗深渊
-    dungeon(209, 22), -- 影牙城堡
+    dungeon(209, 20), -- 影牙城堡
     dungeon(718, 17), -- 哀嚎洞穴
     dungeon(1581, 17), -- 死亡矿井
     dungeon(2437, 13), -- 怒焰裂谷
