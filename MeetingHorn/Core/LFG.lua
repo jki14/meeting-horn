@@ -58,7 +58,6 @@ function LFG:OnEnable()
     self.idleTimer = ns.Timer:New(function()
         return self:OnIdleTimer()
     end)
-    -- print(ns.Addon.db.profile.options['idleTimer'])
     if ns.Addon.db.profile.options['idleTimer']==true then
         self.idleTimer:Start(5)
     end

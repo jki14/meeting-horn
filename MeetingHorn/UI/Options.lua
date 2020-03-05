@@ -46,7 +46,7 @@ function Options:Constructor()
             databroker = toggle(L['Show data broker']),
             chatfilter = toggle(L['Hide activity in chat frame']),
             activityfilter = toggle(L['启用关键字过滤']),
-            idleTimer = toggle(L['Idle Timer']),
+            idletimer = toggle(L['Idle Timer']),
             key = {
                 type = 'keybinding',
                 name = L['Toggle MeetingHorn key binding'],
