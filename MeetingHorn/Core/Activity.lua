@@ -122,12 +122,15 @@ end
 function Activity:GetLeaderClass()
     return self.leaderClass
 end
+
 function Activity:GetLeaderLocClass()
     return self.leaderLocClass
 end
+
 function Activity:GetLeaderLocRace()
     return self.leaderLocRace
 end
+
 function Activity:GetActivityId()
     return self.id
 end
