@@ -155,8 +155,8 @@ function Browser:Constructor()
         local Class = item:GetLeaderLocClass()
         if Class then
             GameTooltip:AddLine(format('%s |cff%02x%02x%02x%s|r', CLASS, r * 255, g * 255, b * 255,
-            item:GetLeaderLocClass()), 1, 1, 1)
-        end
+                                        item:GetLeaderLocClass()), 1, 1, 1)
+         end
         GameTooltip:AddLine(item:GetComment(), 0.6, 0.6, 0.6, true)
         GameTooltip:AddLine(' ')
 
@@ -174,7 +174,10 @@ function Browser:Constructor()
         self.Input:SetText('')
         self.sortOrder = nil
         self.sortId = nil
-        self:Search()
+        self.ActivityList:SetItemList(nil)
+        self:Sort()
+        self.ActivityList:Refresh()
+        self.Empty.Text:SetShown(#result == 0)
     end)
 
     self.Refresh:SetScript('OnClick', Search)
