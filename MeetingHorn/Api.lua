@@ -208,13 +208,13 @@ local ACTIVITY_LIST = { --
     raid(1977, 20), -- 祖尔格拉布
     raid(3429, 20), -- 安其拉废墟
     -- 地下城
-    dungeon(2017, 56), -- 斯坦索姆
+    dungeon(2017, 57), -- 斯坦索姆
     dungeon(2057, 58), -- 通灵学院
     dungeon('Dire Maul - North', 56), -- 厄运之槌 - 北
     dungeon('Dire Maul - West', 56), -- 厄运之槌 - 西
     dungeon('Dire Maul - East', 56), -- 厄运之槌 - 东
-    dungeon('Upper Blackrock Spire', 57, 10), -- 黑石塔上层
-    dungeon('Lower Blackrock Spire', 57), -- 黑石塔下层
+    dungeon('Upper Blackrock Spire', 56, 10), -- 黑石塔上层
+    dungeon('Lower Blackrock Spire', 56), -- 黑石塔下层
     dungeon(1584, 48), -- 黑石深渊
     dungeon(1477, 44), -- 阿塔哈卡神庙
     dungeon(2100, 40), -- 玛拉顿
