@@ -176,8 +176,9 @@ function Browser:Constructor()
         self.sortId = nil
         self.ActivityList:SetItemList(nil)
         self:Sort()
+        ns.LFG.idleTimer:Start(5)
         self.ActivityList:Refresh()
-        self.Empty.Text:SetShown(#result == 0)
+        -- self.Empty.Text:SetShown(#result == 0)
     end)
 
     self.Refresh:SetScript('OnClick', Search)
