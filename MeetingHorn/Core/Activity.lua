@@ -24,6 +24,8 @@ end
 ---@field private leader string
 ---@field private leaderLower string
 ---@field private leaderClass string
+---@field private leaderLocClass string
+---@field private leaderLocRace string
 ---@field private guid string
 ---@field private id number
 ---@field private modeId number
@@ -119,6 +121,14 @@ end
 
 function Activity:GetLeaderClass()
     return self.leaderClass
+end
+
+function Activity:GetLeaderLocClass()
+    return self.leaderLocClass
+end
+
+function Activity:GetLeaderLocRace()
+    return self.leaderLocRace
 end
 
 function Activity:GetActivityId()
@@ -239,6 +249,8 @@ end
 function Activity:SetLeaderGUID(guid)
     self.guid = guid
     self.leaderClass = guid and select(2, GetPlayerInfoByGUID(guid)) or 'PRIEST'
+    self.leaderLocClass = guid and select(1, GetPlayerInfoByGUID(guid)) or 'PRIEST'
+    self.leaderLocRace = guid and select(3, GetPlayerInfoByGUID(guid)) or 'PRIEST'
 end
 
 function Activity:SetLeader(leader)

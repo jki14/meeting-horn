@@ -208,18 +208,18 @@ local ACTIVITY_LIST = { --
     raid(1977, 20), -- 祖尔格拉布
     raid(3429, 20), -- 安其拉废墟
     -- 地下城
-    dungeon(2017, 58), -- 斯坦索姆
+    dungeon(2017, 57), -- 斯坦索姆
     dungeon(2057, 58), -- 通灵学院
-    dungeon('Dire Maul - North', 58), -- 厄运之槌 - 北
-    dungeon('Dire Maul - West', 58), -- 厄运之槌 - 西
-    dungeon('Dire Maul - East', 58), -- 厄运之槌 - 东
-    dungeon('Upper Blackrock Spire', 55, 10), -- 黑石塔上层
-    dungeon('Lower Blackrock Spire', 55), -- 黑石塔下层
-    dungeon(1584, 52), -- 黑石深渊
-    dungeon(1477, 50), -- 阿塔哈卡神庙
-    dungeon(2100, 46), -- 玛拉顿
-    dungeon(1176, 44), -- 祖尔法拉克
-    dungeon(1337, 41), -- 奥达曼
+    dungeon('Dire Maul - North', 56), -- 厄运之槌 - 北
+    dungeon('Dire Maul - West', 56), -- 厄运之槌 - 西
+    dungeon('Dire Maul - East', 56), -- 厄运之槌 - 东
+    dungeon('Upper Blackrock Spire', 56, 10), -- 黑石塔上层
+    dungeon('Lower Blackrock Spire', 56), -- 黑石塔下层
+    dungeon(1584, 48), -- 黑石深渊
+    dungeon(1477, 44), -- 阿塔哈卡神庙
+    dungeon(2100, 40), -- 玛拉顿
+    dungeon(1176, 43), -- 祖尔法拉克
+    dungeon(1337, 38), -- 奥达曼
     dungeon(722, 37), -- 剃刀高地
     dungeon('Scarlet Monastery - Cathedral', 35), -- 血色修道院 - 大教堂
     dungeon('Scarlet Monastery - Armory', 32), -- 血色修道院 - 军械库
@@ -228,8 +228,8 @@ local ACTIVITY_LIST = { --
     dungeon(491, 29), -- 剃刀沼泽
     dungeon(721, 29), -- 诺莫瑞根
     dungeon(717, 24), -- 监狱
-    dungeon(719, 24), -- 黑暗深渊
-    dungeon(209, 22), -- 影牙城堡
+    dungeon(719, 23), -- 黑暗深渊
+    dungeon(209, 20), -- 影牙城堡
     dungeon(718, 17), -- 哀嚎洞穴
     dungeon(1581, 17), -- 死亡矿井
     dungeon(2437, 13), -- 怒焰裂谷

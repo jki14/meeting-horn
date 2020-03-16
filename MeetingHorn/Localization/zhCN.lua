@@ -9,6 +9,7 @@ L.ADDON_NAME = '集结号'
 L['Leader'] = '队长'
 L['Comment'] = '说明'
 L['Operation'] = '操作'
+L['Class'] = '职业'
 
 L['Activity'] = '活动类型'
 L['Activity Mode'] = '活动模式'
@@ -97,6 +98,7 @@ L['删除成功，关键字“%s”已删除。'] = true
 
 L['Show data broker'] = '显示悬浮窗'
 L['Hide activity in chat frame'] = '隐藏聊天窗口内的集结号活动'
+L['Idle Timer'] = '开启/关闭闲置超时(reload后生效)'
 
 L.HELP_COMMENT = [[|cffffd100使用说明|r
 1. 集结号刚打开的时候是有短暂收集数据的时间，还请您耐心等待。

@@ -23,8 +23,9 @@ function Browser:Constructor()
     self.Header2:SetText(L['Mode'])
     self.Header3:SetText(L['Members'])
     self.Header4:SetText(L['Leader'])
-    self.Header5:SetText(L['Comment'])
-    self.Header6:SetText(L['Operation'])
+    self.Header5:SetText(L['Class'])
+    self.Header6:SetText(L['Comment'])
+    self.Header7:SetText(L['Operation'])
     -- self.Header1:Disable()
     self.Header2:Disable()
     self.Header3:Disable()
@@ -96,9 +97,11 @@ function Browser:Constructor()
 
         button.Name:SetText(item:GetTitle())
         button.Leader:SetText(item:GetLeader())
+        button.Class:SetText(item:GetLeaderLocClass())
         button.Comment:SetText(item:GetComment())
         button.Mode:SetText(item:GetMode())
         button.Leader:SetTextColor(GetClassColor(item:GetLeaderClass()))
+        button.Class:SetTextColor(GetClassColor(item:GetLeaderClass()))
         button.Comment:SetWidth(item:IsActivity() and 290 or 360)
         local members = item:GetMembers()
         if members then
@@ -108,7 +111,6 @@ function Browser:Constructor()
         else
             button.Members:SetText('-')
         end
-
         button.State:SetShown(state)
         button.State:SetText(state)
         button.State:SetTextColor(GREEN_FONT_COLOR:GetRGB())
@@ -146,6 +148,15 @@ function Browser:Constructor()
             GameTooltip:AddLine(format('%s |cff%02x%02x%02x%s|r', LEVEL, color.r * 255, color.g * 255, color.b * 255,
                                        item:GetLeaderLevel()), 1, 1, 1)
         end
+        local Race = item:GetLeaderLocRace()
+        if Race then
+            GameTooltip:AddLine(item:GetLeaderLocRace(), 1, 1, 1, true)
+        end
+        local Class = item:GetLeaderLocClass()
+        if Class then
+            GameTooltip:AddLine(format('%s |cff%02x%02x%02x%s|r', CLASS, r * 255, g * 255, b * 255,
+                                        item:GetLeaderLocClass()), 1, 1, 1)
+         end
         GameTooltip:AddLine(item:GetComment(), 0.6, 0.6, 0.6, true)
         GameTooltip:AddLine(' ')
 
@@ -163,7 +174,11 @@ function Browser:Constructor()
         self.Input:SetText('')
         self.sortOrder = nil
         self.sortId = nil
-        self:Search()
+        self.ActivityList:SetItemList(nil)
+        self:Sort()
+        ns.LFG.idleTimer:Start(5)
+        self.ActivityList:Refresh()
+        -- self.Empty.Text:SetShown(#result == 0)
     end)
 
     self.Refresh:SetScript('OnClick', Search)
