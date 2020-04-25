@@ -49,23 +49,6 @@ function Browser:Constructor()
         return self:Search()
     end
 
-    local function QuickButtonOnClick(button)
-        self.Activity:SetValue(button.id)
-    end
-
-    ---@param button Button
-    local function SetupQuickButton(button, id)
-        local data = ns.GetActivityData(id)
-        button:SetText(data.shortName or data.name)
-        button:SetScript('OnClick', QuickButtonOnClick)
-        button.id = id
-    end
-    
-    
-    -- SetupQuickButton(self.Quick1, 1)
-    -- SetupQuickButton(self.Quick2, 2)
-    -- SetupQuickButton(self.Quick3, 3)
-    -- SetupQuickButton(self.Quick6, 6)
 
     self.Activity:SetMenuTable(ns.ACTIVITY_FILTER_MENU)
     self.Activity:SetDefaultText(ALL)
@@ -199,9 +182,6 @@ function Browser:Constructor()
 
     self.Refresh:SetScript('OnClick', Search)
 
-    -- self.CreateButton:SetScript('OnClick', function()
-    --     ns.Addon.MainPanel:SetTab(2)
-    -- end)
 
     self.progressTimer = ns.Timer:New(function()
         self:UpdateProgress()
