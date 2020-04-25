@@ -130,6 +130,8 @@ L['Taerar'] = '泰拉尔' -- 泰拉尔
 L['Emeriss'] = '艾莫莉丝' -- 艾莫莉丝
 L['Lethon'] = '莱索恩' -- 莱索恩
 
+L['SHORT'] = '快速搜索'
+
 L['SHORT: Molten Core'] = 'MC' -- 熔火之心
 L['SHORT: Onyxia\'s Lair'] = '黑龙' -- 奥妮克希亚的巢穴
 L['SHORT: Blackwing Lair'] = 'BWL' -- 黑翼之巢

@@ -36,12 +36,14 @@ function Browser:Constructor()
     -- self.CreateButton:SetText(L['Create Activity'])
     self.ActivityLabel:SetText(L['Activity'])
     self.ModeLabel:SetText(L['Activity Mode'])
+    self.QuickLabel:SetText(L['SHORT'])
     self.SearchLabel:SetText(SEARCH .. L['(Include channel message)'])
     self.ProgressBar.Loading:SetText(L['Receiving active data, please wait patiently'])
     self.ProgressBar:SetMinMaxValues(0, 1)
 
     ns.GUI:GetClass('Dropdown'):Bind(self.Activity)
     ns.GUI:GetClass('Dropdown'):Bind(self.Mode)
+    ns.GUI:GetClass('Dropdown'):Bind(self.Quick)
 
     local function Search()
         return self:Search()
@@ -58,11 +60,12 @@ function Browser:Constructor()
         button:SetScript('OnClick', QuickButtonOnClick)
         button.id = id
     end
-
-    SetupQuickButton(self.Quick1, 1)
-    SetupQuickButton(self.Quick2, 2)
-    SetupQuickButton(self.Quick3, 3)
-    SetupQuickButton(self.Quick6, 6)
+    
+    
+    -- SetupQuickButton(self.Quick1, 1)
+    -- SetupQuickButton(self.Quick2, 2)
+    -- SetupQuickButton(self.Quick3, 3)
+    -- SetupQuickButton(self.Quick6, 6)
 
     self.Activity:SetMenuTable(ns.ACTIVITY_FILTER_MENU)
     self.Activity:SetDefaultText(ALL)
@@ -78,7 +81,19 @@ function Browser:Constructor()
     self.Mode:SetDefaultText(ALL)
     self.Mode:SetCallback('OnSelectChanged', Search)
     self.Mode:SetMaxItem(20)
-
+    
+    self.Quick:SetDefaultText(ALL)
+    self.Quick:SetMenuTable(ns.SHORT_FILTER_MENU)
+    self.Quick:SetCallback('OnSelectChanged', function()
+        local QuickId = tonumber(self.Quick:GetValue())
+        -- local activityData = activityId and ns.GetActivityData(activityId)
+        if QuickId then
+            self.Activity:SetValue(QuickId)
+        else
+            self.Input:SetText('')
+        end
+        -- self:Search()
+    end)
     self.Input:HookScript('OnTextChanged', Search)
 
     ns.UI.ListView:Bind(self.ActivityList)
