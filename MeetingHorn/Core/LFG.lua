@@ -74,7 +74,7 @@ function LFG:OnEnable()
     self:ConnectServer(UnitFactionGroup('player') == 'Alliance' and 'Zpqmxown' or 'Nwoxmqpz')
     self:RegisterSocket('JOIN', 'OnSocketJoin')
     self:RegisterServer('SERVER_CONNECTED')
-    self:RegisterServer('SNEWVERSION')
+    -- self:RegisterServer('SNEWVERSION')
 
     self:RegisterEvent('ENCOUNTER_END')
     self:RegisterEvent('ENCOUNTER_START')

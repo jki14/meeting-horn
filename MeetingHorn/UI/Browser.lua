@@ -171,6 +171,7 @@ function Browser:Constructor()
         self.Activity:SetValue(nil)
         self.Mode:SetValue(nil)
         self.Input:SetText('')
+        self.Quick:SetValue(nil)
         self.sortOrder = nil
         self.sortId = nil
         self.ActivityList:SetItemList(nil)
