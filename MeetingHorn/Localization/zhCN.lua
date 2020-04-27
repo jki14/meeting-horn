@@ -99,6 +99,7 @@ L['删除成功，关键字“%s”已删除。'] = true
 L['Show data broker'] = '显示悬浮窗'
 L['Hide activity in chat frame'] = '隐藏聊天窗口内的集结号活动'
 L['Idle Timer'] = '自动刷新活动列表'
+L['Idle Confirm'] = '修改此项将重新载入插件'
 
 L.HELP_COMMENT = [[|cffffd100使用说明|r
 1. 集结号刚打开的时候是有短暂收集数据的时间，还请您耐心等待。

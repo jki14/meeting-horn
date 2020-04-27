@@ -58,7 +58,11 @@ function Options:Constructor()
                 set = function(_, value)
                     Options:SetOption('idleTimer',value)
                     ReloadUI()
+                end,
+                confirm = function(_, value)
+                    return L['Idle Confirm']
                 end
+
             },
             key = {
                 type = 'keybinding',
