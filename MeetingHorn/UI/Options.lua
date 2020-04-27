@@ -42,11 +42,24 @@ function Options:Constructor()
         set = function(item, value)
             return self:SetOption(item[#item], value)
         end,
-        args = { --
+        args = {
             databroker = toggle(L['Show data broker']),
             chatfilter = toggle(L['Hide activity in chat frame']),
             activityfilter = toggle(L['启用关键字过滤']),
-            idletimer = toggle(L['Idle Timer']),
+            -- idletimer = toggle(L['Idle Timer']),
+            idletimer = {
+                type= 'toggle',
+                width = 'full',
+                order = orderGen(),
+                name = L['Idle Timer'],
+                get = function()
+                    return Options:GetOption('idleTimer')
+                end,
+                set = function(_, value)
+                    Options:SetOption('idleTimer',value)
+                    ReloadUI()
+                end
+            },
             key = {
                 type = 'keybinding',
                 name = L['Toggle MeetingHorn key binding'],
