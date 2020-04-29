@@ -48,7 +48,7 @@ L.CATEGORY_RECRUIT = '招募'
 L.SUMMARY_NEW_VERSION = [[|cff00ffff%s|r：
 发现新版本：%s，请及时下载更新
 下载链接：%s]]
-
+L.WELCOME_MESSAGE= [[更新日期|cff00ffff%s|r - 输入 /MeetingHorn或者/LFG打开主面板]]
 -- L['Quest'] = '任务'
 -- L['Raid'] = '团队副本'
 -- L['Dungeon'] = '地下城'

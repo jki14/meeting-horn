@@ -23,7 +23,7 @@ local L = LibStub('AceLocale-3.0'):GetLocale('MeetingHorn', true)
 
 ---@class MeetingHorn
 ---@field private MainPanel MeetingHornUIMainPanel
-local Addon = LibStub('AceAddon-3.0'):NewAddon('MeetingHorn', 'LibClass-2.0', 'AceEvent-3.0')
+local Addon = LibStub('AceAddon-3.0'):NewAddon('MeetingHorn', 'LibClass-2.0', 'AceEvent-3.0', 'AceConsole-3.0')
 ns.Addon = Addon
 
 ns.L = L
@@ -70,8 +70,10 @@ function Addon:OnInitialize()
     self.DataBroker = ns.UI.DataBroker:Bind(MeetingHornDataBroker)
 
     self:RegisterMessage('MEETINGHORN_OPTION_CHANGED_CHATFILTER')
+    Addon:RegisterChatCommand("LFG", "Toggle")
+    Addon:RegisterChatCommand("MeetingHorn", "Toggle")
+    ns.Message(format(L.WELCOME_MESSAGE,string.gsub(ns.ADDON_VERSION,'update ','')))
 end
-
 function Addon:OnEnable()
     local keys = {'databroker', 'chatfilter', 'activityfilter'}
     for _, key in ipairs(keys) do
