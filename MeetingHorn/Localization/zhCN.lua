@@ -174,3 +174,12 @@ L['SHORT: Ysondre'] = '' -- 伊森德雷
 L['SHORT: Taerar'] = '' -- 泰拉尔
 L['SHORT: Emeriss'] = '' -- 艾莫莉丝
 L['SHORT: Lethon'] = '' -- 莱索恩
+
+L['MODE:with new player'] = '带新'
+L['MODE:self-improvement'] = '自强'
+L['MODE:Roll'] = 'Roll'
+L['MODE:AA'] = 'AA'
+L['MODE:Melee'] = '菜刀'
+L['MODE:Transfer'] = '传送'
+L['MODE:Others'] = '其他'
+L['MODE:Action'] = '拍卖'

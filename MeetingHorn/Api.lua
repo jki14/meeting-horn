@@ -86,7 +86,7 @@ local CATEGORY_LIST = {
 }
 
 local CLASS_INFO = FillLocalizedClassList{}
-local MODE_LIST = {'带新', '自强', 'Roll', 'AA', '菜刀', '传送', '其它'}
+local MODE_LIST = {L['MODE:with new player'], L['MODE:self-improvement'], L['MODE:Roll'],L['MODE:AA'], L['MODE:Melee'],L['MODE:Transfer'], L['MODE:Others'],L['MODE:Action']}
 local MODE_IDS = tInvert(MODE_LIST)
 local CATEGORY_DATA = invert(CATEGORY_LIST, 'path')
 local SHORT_NAMES = {
