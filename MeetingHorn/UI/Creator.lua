@@ -59,9 +59,50 @@ function Creator:Constructor()
     self:SetScript('OnShow', self.Update)
 end
 
+function IsInTable(value, tbl)
+    for k,v in ipairs(tbl) do
+      if v == value then
+      return true;
+      end
+    end
+    return false;
+end
+
 function Creator:OnShow()
     RequestRaidInfo()
     self:Update()
+end
+local function GetFaction()
+    local Alliance = {'Human','Dwarf','	Night Elf','Gnome'} --联盟
+    local Horde = {'Orc','Tauren','Troll','Undead'} --部落
+    race, raceEn = UnitRace("player")
+    if IsInTable(raceEn,Alliance) then
+        RivalCamp = L['Horde']
+        Faction = L['Alliance']
+    end
+    if IsInTable(raceEn,Horde) then
+        RivalCamp = L['Alliance']
+        Faction = L['Horde']
+    end
+    return Faction,RivalCamp
+end
+local function IsRivalCampActivity(activityId,Faction)
+    local AllianceId = {73,75,78,79,80,27}
+    local HordeId = {74,76,77,81,32,72}
+    if Faction==L['Alliance'] then
+        if IsInTable(activityId,HordeId)==true then
+            return true
+        else
+            return false
+        end
+    end
+    if Faction==L['Horde'] then
+        if IsInTable(activityId,AllianceId)==true then
+            return true
+        else
+            return false
+        end
+    end
 end
 
 function Creator:OnCreateClick()
@@ -72,6 +113,9 @@ function Creator:OnCreateClick()
     local modeId = self.Mode:GetValue()
     local comment = self.Comment:GetText():gsub('%s+', ' ')
     local instanceName = ns.GetActivityData(activityId).instanceName
+    local Name = ns.GetActivityData(activityId).name
+    local Faction, RivalCamp = GetFaction()
+    
     if instanceName then
         local raidId = ns.GetRaidId(instanceName)
         if raidId ~= -1 then
@@ -97,7 +141,44 @@ function Creator:OnCreateClick()
             return
         end
     end
-
+    if IsRivalCampActivity(activityId,Faction)==true then
+        if not StaticPopupDialogs['MEETINGHORN_RIVAL_CAMP'] and Faction==L['Alliance'] then
+            StaticPopupDialogs['MEETINGHORN_RIVAL_CAMP'] =
+                {
+                    text = L['RIVAL_CAMP_WARNING_Alliance'],
+                    button1 = YES,
+                    button2 = NO,
+                    OnAccept = function(_, data)
+                        self.CreateButton:SetCountdown(10)
+                        ns.LFG:CreateActivity(ns.Activity:New(data.activityId, data.modeId, data.comment))
+                        ns.Message(L['Create acitivty success.'])
+                    end,
+                    hideOnEscape = 1,
+                    timeout = 0,
+                    exclusive = 1,
+                    whileDead = 1,
+                }
+        end
+        if not StaticPopupDialogs['MEETINGHORN_RIVAL_CAMP'] and Faction==L['Horde'] then
+            StaticPopupDialogs['MEETINGHORN_RIVAL_CAMP'] =
+                {
+                    text = L['RIVAL_CAMP_WARNING_Horde'],
+                    button1 = YES,
+                    button2 = NO,
+                    OnAccept = function(_, data)
+                        self.CreateButton:SetCountdown(10)
+                        ns.LFG:CreateActivity(ns.Activity:New(data.activityId, data.modeId, data.comment))
+                        ns.Message(L['Create acitivty success.'])
+                    end,
+                    hideOnEscape = 1,
+                    timeout = 0,
+                    exclusive = 1,
+                    whileDead = 1,
+                }
+        end
+        StaticPopup_Show('MEETINGHORN_RIVAL_CAMP', Name, RivalCamp, {activityId = activityId, modeId = modeId, comment = comment})
+        return
+    end
     self.CreateButton:SetCountdown(10)
     ns.LFG:CreateActivity(ns.Activity:New(activityId, modeId, comment), true)
     ns.Message(hasActivity and L['Update activity success.'] or L['Create acitivty success.'])

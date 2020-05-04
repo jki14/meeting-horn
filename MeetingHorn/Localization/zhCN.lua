@@ -59,12 +59,17 @@ L.WELCOME_MESSAGE= [[更新日期|cff00ffff%s|r - 输入 /MeetingHorn或者/LFG�
 L['Sell'] = '出售'
 L['Buy'] = '购买'
 
+L['Alliance'] = '联盟'
+L['Horde'] = '部落'
+
 L['<Double-Click> Whisper to player'] = '<双击>密语'
 L['<Right-Click> Open activity menu'] = '<右键>打开活动菜单'
 L['(Include channel message)'] = '(包含频道聊天)'
 L['Applicanted'] = '已申请'
 
 L['|cff00ffff%s|r instance already exists, continue to create?'] = '|cff00ffff%s|r进度已存在，继续创建？'
+L['RIVAL_CAMP_WARNING_Alliance'] = '|cff00ffff%s|r是|cffb30000%s|r的领土，继续创建？'
+L['RIVAL_CAMP_WARNING_Horde'] = '|cff00ffff%s|r是|cff0078ff%s|r的领土，继续创建？'
 L['Update activity success.'] = '更新活动成功。'
 L['Create acitivty success.'] = '创建活动成功。'
 L['Activity closed.'] = '活动已解散。'

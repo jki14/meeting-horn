@@ -1,6 +1,8 @@
-
+---@class MeetingHornLocale
 local L = LibStub('AceLocale-3.0'):NewLocale('MeetingHorn', 'zhTW')
-if not L then return end
+if not L then
+    return
+end
 
 L.ADDON_NAME = '集結號'
 
@@ -32,7 +34,7 @@ L['Requires Level %s'] = '需要等級%s'
 L['Requires Class %s'] = '需要職業%s'
 L['Requires Zone City'] = '需要處於城市中'
 
--- 活動
+-- 活动
 
 L.CATEGORY_QUEST = '任務'
 L.CATEGORY_RAID = '團隊副本'
@@ -47,15 +49,18 @@ L.SUMMARY_NEW_VERSION = [[|cff00ffff%s|r：
 發現新版本：%s，請及時下載更新
 下載鏈接：%s]]
 L.WELCOME_MESSAGE= [[更新日期|cff00ffff%s|r - 輸入 /MeetingHorn或者/LFG打開主面板]]
--- L['Quest'] = '任務'
--- L['Raid'] = '團隊副本'
+-- L['Quest'] = '任务'
+-- L['Raid'] = '团队副本'
 -- L['Dungeon'] = '地下城'
--- L['Boss'] = '世界首領'
+-- L['Boss'] = '世界首领'
 -- L['PvP'] = true
 -- L['Trade'] = '交易'
 
 L['Sell'] = '出售'
 L['Buy'] = '購買'
+
+L['Alliance'] = '聯盟'
+L['Horde'] = '部落'
 
 L['<Double-Click> Whisper to player'] = '<雙擊>密語'
 L['<Right-Click> Open activity menu'] = '<右鍵>打開活動菜單'
@@ -63,6 +68,8 @@ L['(Include channel message)'] = '(包含頻道聊天)'
 L['Applicanted'] = '已申請'
 
 L['|cff00ffff%s|r instance already exists, continue to create?'] = '|cff00ffff%s|r進度已存在，繼續創建？ '
+L['RIVAL_CAMP_WARNING_Alliance'] = '|cff00ffff%s|r是|cffb30000%s|r的領土，繼續創建？ '
+L['RIVAL_CAMP_WARNING_Horde'] = '|cff00ffff%s|r是|cff0078ff%s|r的領土，繼續創建？ '
 L['Update activity success.'] = '更新活動成功。 '
 L['Create acitivty success.'] = '創建活動成功。 '
 L['Activity closed.'] = '活動已解散。 '
@@ -78,7 +85,7 @@ L['Toggle MeetingHorn'] = '打開/關閉集結號'
 L['Toggle MeetingHorn key binding'] = '打開/關閉集結號快捷鍵'
 L['按键已绑定到|cffffd100%s|r，你确定要覆盖吗？'] = true
 
-L['Options'] = '设置'
+L['Options'] = '設置'
 L['启用关键字过滤'] = true
 L['关键字过滤'] = true
 L['导入'] = true
@@ -181,4 +188,3 @@ L['MODE:Melee'] = '菜刀'
 L['MODE:Transfer'] = '傳送'
 L['MODE:Others'] = '其他'
 L['MODE:Action'] = '拍賣'
---@localization(locale=""zhTW", format="lua_additive_table", table-name="L", same-key-is-true=true)@
