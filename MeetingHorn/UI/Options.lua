@@ -44,6 +44,22 @@ function Options:Constructor()
         end,
         args = {
             databroker = toggle(L['Show data broker']),
+            minimap = {
+                type= 'toggle',
+                width = 'full',
+                order = orderGen(),
+                name = L['Show minimap'],
+                get = function()
+                    return ns.Addon.db.profile.window.minimap['hide']
+                end,
+                set = function(_, value)
+                    ns.Addon.db.profile.window.minimap['hide']=value
+                    ReloadUI()
+                end,
+                confirm = function(_, value)
+                    return L['Confirm']
+                end
+            },
             chatfilter = toggle(L['Hide activity in chat frame']),
             activityfilter = toggle(L['启用关键字过滤']),
             -- idletimer = toggle(L['Idle Timer']),
@@ -60,7 +76,7 @@ function Options:Constructor()
                     ReloadUI()
                 end,
                 confirm = function(_, value)
-                    return L['Idle Confirm']
+                    return L['Confirm']
                 end
 
             },
