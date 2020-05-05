@@ -35,7 +35,8 @@ function DataBroker:Constructor()
     })
 
     LibStub('LibWindow-1.1'):Embed(self)
-    LibStub('LibDBIcon-1.0'):Register('MeetingHorn', BrokerObject, ns.Addon.db.profile.window.minimap)
+    local icon = LibStub("LibDBIcon-1.0")
+    icon:Register("MeetingHorn", BrokerObject, ns.Addon.db.profile.window.minimap)
 
     self:RegisterConfig(ns.Addon.db.profile.window.databroker)
     self:MakeDraggable()

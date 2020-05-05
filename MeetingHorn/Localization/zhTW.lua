@@ -100,9 +100,10 @@ L['删除失败，关键字“%s”不存在。'] = true
 L['删除成功，关键字“%s”已删除。'] = true
 
 L['Show data broker'] = '顯示懸浮窗'
+L['Show minimap'] = '隱藏小地圖圖標'
 L['Hide activity in chat frame'] = '隱藏聊天窗口內的集結號活動'
 L['Idle Timer'] = '自動刷新活動列表'
-L['Idle Confirm'] = '修改此項將重新載入插件'
+L['Confirm'] = '修改此項將重新載入插件'
 
 L.HELP_COMMENT = [[|cffffd100使用說明|r
 1. 集結號剛打開的時候是有短暫收集數據的時間，還請您耐心等待。
