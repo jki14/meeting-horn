@@ -73,10 +73,8 @@ L['RIVAL_CAMP_WARNING_Horde'] = '|cff00ffff%s|r是|cff0078ff%s|r的領土，繼�
 L['Update activity success.'] = '更新活動成功。 '
 L['Create acitivty success.'] = '創建活動成功。 '
 L['Activity closed.'] = '活動已解散。 '
-L['There are no activity, please try searching.'] =
-    '當前沒有集結號活動，\n請嘗試在上方搜索框中直接搜索關鍵字。 '
+L['There are no activity, please try searching.'] = '當前沒有集結號活動，\n請嘗試在上方搜索框中直接搜索關鍵字。'
 L['Receiving active data, please wait patiently'] = '正在接收活動數據，請耐心等待 ...'
-
 L['Applicant Count'] = '申請人數'
 L['Application Count'] = '申請中活動'
 L['Activity Count'] = '活動總數'
