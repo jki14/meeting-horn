@@ -7,9 +7,9 @@ local BINDING_KEY = 'MEETINGHORN_TOGGLE'
 local Filters = ns.Addon:NewClass('UI.Filters', 'Frame')
 
 function Filters:Constructor()
-    self.FilterTitle:SetText(L['关键字过滤'])
-    self.Import:SetText(L['导入'])
-    self.Export:SetText(L['导出'])
+    self.FilterTitle:SetText(L['keyword filtering'])
+    self.Import:SetText(L['Import'])
+    self.Export:SetText(L['Export'])
 
     ns.UI.ListView:Bind(self.FilterList)
 
@@ -19,8 +19,8 @@ function Filters:Constructor()
     end)
     self.FilterList:SetCallback('OnItemImport', function(_, button)
         self.FilterBox:Open({
-            text = L['导入关键字'],
-            acceptText = L['导入'],
+            text = L['Import keywords'],
+            acceptText = L['import'],
             editBox = true,
             OnAccept = function(_, content)
                 self:AddFilters(content)
@@ -50,8 +50,8 @@ function Filters:Constructor()
     self.FilterBox = FilterBox
 
     local FilterInputBox = ns.Addon:GetClass('UI.InputDialog'):New(self)
-    FilterInputBox:SetTitle(L['请输入需要屏蔽的关键字'])
-    FilterInputBox:SetCheckBoxLabel(L['匹配?'])
+    FilterInputBox:SetTitle(L['Please enter keywords to be blocked'])
+    FilterInputBox:SetCheckBoxLabel(L['Match?'])
     FilterInputBox:SetMaxLetters(50)
     FilterInputBox:SetCallback('OnSubmit', function(_, text, checked)
         self:AddFilter({text = text, plainText = not checked and true or nil})
@@ -76,7 +76,7 @@ end
 
 function Filters:AddFilter(keyword, delay)
     if type(keyword) ~= 'table' then
-        ns.Message(L['添加失败，关键字错误。'])
+        ns.Message(L['Add failed, wrong keyword'])
         return
     end
 
@@ -85,12 +85,12 @@ function Filters:AddFilter(keyword, delay)
     end
 
     if self:GetFilter(keyword) then
-        ns.Message(L['添加失败，关键字“%s”已存在。'], keyword.text)
+        ns.Message(L['Add failed, keyword already exists'], keyword.text)
         return
     end
 
     table.insert(ns.Addon.db.global.activity.filters, keyword)
-    ns.Message(L['添加成功，关键字“%s”已添加。'], keyword.text)
+    ns.Message(L['Add success, the keyword has been added'], keyword.text)
 
     if not deley then
         ns.LFG:ClearFilterCache()
@@ -130,19 +130,19 @@ end
 
 function Filters:DeleteFilter(keyword)
     if type(keyword) ~= 'table' then
-        ns.Message(L['删除失败，关键字错误。'])
+        ns.Message(L['Failed to delete, wrong keyword'])
         return
     end
 
     local index = self:GetFilter(keyword)
     if not index then
-        ns.Message(L['删除失败，关键字“%s”不存在。'], keyword.text)
+        ns.Message(L['Failed to delete, the keyword does not exist'], keyword.text)
         return
     end
 
     table.remove(ns.Addon.db.global.activity.filters, index)
     ns.LFG:ClearFilterCache()
-    ns.Message(L['删除成功，关键字“%s”已删除。'], keyword.text)
+    ns.Message(L['Deleted successfully, the keyword has been deleted'], keyword.text)
     self:SendMessage('MEETINGHORN_ACTIVITY_FILTER_UPDATED')
 end
 
