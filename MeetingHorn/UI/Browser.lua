@@ -69,13 +69,15 @@ function Browser:Constructor()
     self.Quick:SetMenuTable(ns.SHORT_FILTER_MENU)
     self.Quick:SetCallback('OnSelectChanged', function()
         local QuickId = tonumber(self.Quick:GetValue())
-        -- local activityData = activityId and ns.GetActivityData(activityId)
+        local activityData = QuickId and ns.GetActivityData(QuickId)
         if QuickId then
             self.Activity:SetValue(QuickId)
+            self.Input:SetText(activityData and activityData.shortName or '')
         else
+            self.Activity:SetValue(All)
             self.Input:SetText('')
         end
-        -- self:Search()
+        self:Search()
     end)
     self.Input:HookScript('OnTextChanged', Search)
 
