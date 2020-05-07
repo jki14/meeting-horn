@@ -1,7 +1,7 @@
 ## Interface: 11303
 ## Title: MeetingHorn
 ## Title-zhCN: 集结号
-## Version: update 20200506
+## Version: update 20200507
 ## SavedVariables: MEETINGHORN_DB
 
 Load.xml
