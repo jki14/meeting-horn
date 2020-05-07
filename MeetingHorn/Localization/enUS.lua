@@ -97,11 +97,11 @@ L['删除成功，关键字“%s”已删除。'] = true
 L['Show data broker'] = 'Show data broker'
 L['Hide activity in chat frame'] = 'Hide activity in chat frame'
 
-L.HELP_COMMENT = [[|cffffd100使用说明|r
-1. 集结号刚打开的时候是有短暂收集数据的时间，还请您耐心等待。
-2. 鼠标悬浮在插件上是只接受不刷新活动的，当你鼠标离开插件区域时活动将继续刷新。
-3. 如果遇到不喜欢看到的活动或者团长，您可以在设置中添加屏蔽功能，屏蔽功能支持Lua匹配模式。
-4. 在设置中可以添加或者隐藏集结号的悬浮窗，同样也可以设置快捷键快速调出集结号界面。]]
+L.HELP_COMMENT = [[|cffffd100HELP|r
+1. It takes time to collate data when MeetingHorn activates, please be patient.
+2. MeetingHorn keeps receiving new activities without updating existed ones during the mouseover.
+3. The filter allows blocking specific activities, leaders, and Lua matching.
+4. It is possible to show or hide the floating frame, and trigger key binding is allowed.]]
 
 L['CHANNEL: Port'] = '传送频道'
 L['CHANNEL: Trade'] = 'Trade'
