@@ -4,10 +4,9 @@
 ## Title-zhTW: 集結號
 ## Notes-zhCN: |cff00ff00集结号|r
 ## Notes-zhTW: |cff00ff00集結號|r
-## Dependencies: !!!Libs
 ## Version: update 20200509
 ## SavedVariables: MEETINGHORN_DB
 
+Libs\Libs.xml
 Load.xml
 UI\Template.xml
-Libs\Libs.xml
