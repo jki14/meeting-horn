@@ -58,9 +58,9 @@ function LFG:OnEnable()
     self.idleTimer = ns.Timer:New(function()
         return self:OnIdleTimer()
     end)
-    if ns.Addon.db.profile.options['idleTimer']==true then
-        self.idleTimer:Start(5)
-    end
+
+    self.idleTimer:Start(5)
+
 
 
     self:RegisterEvent('CHAT_MSG_CHANNEL')
