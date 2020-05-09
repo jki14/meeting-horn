@@ -1,7 +1,11 @@
-## Interface: 11303
+## Interface: 11304
 ## Title: MeetingHorn
 ## Title-zhCN: 集结号
-## Version: update 20200507
+## Title-zhTW: 集結號
+## Notes-zhCN: |cff00ff00集结号|r
+## Notes-zhTW: |cff00ff00集結號|r
+## Version: update 20200509
 ## SavedVariables: MEETINGHORN_DB
 
 Load.xml
+UI\Template.xml
