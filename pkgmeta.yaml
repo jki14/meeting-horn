@@ -1,0 +1,7 @@
+package-as: MeetingHorn
+enable-nolib-creation: no
+ignore: # Files and directories beginning with a dot (such as .git) are automatically ignored, as is the pgkmeta file itself.
+    - README.md
+    - gadd.sh
+    - screenshot.jpg
+    - screenshot.png
