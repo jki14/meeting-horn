@@ -5,6 +5,6 @@ ignore: # Files and directories beginning with a dot (such as .git) are automati
     - gadd.sh
     - screenshot.jpg
     - screenshot.png
-    - !!!Libs
+    -  '!!!Libs'
 move-folders:
-MeetingHorn/MeetingHorn: MeetingHorn
+ MeetingHorn/MeetingHorn: MeetingHorn
