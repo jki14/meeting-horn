@@ -89,49 +89,50 @@ local CLASS_INFO = FillLocalizedClassList{}
 local MODE_LIST = {L['MODE:with new player'], L['MODE:self-improvement'], L['MODE:Roll'],L['MODE:AA'], L['MODE:Melee'],L['MODE:Transfer'], L['MODE:Others'],L['MODE:Action']}
 local MODE_IDS = tInvert(MODE_LIST)
 local CATEGORY_DATA = invert(CATEGORY_LIST, 'path')
-local SHORT_NAMES = {
-    [2717] = L['SHORT: Molten Core'], -- 熔火之心
-    [2159] = L['SHORT: Onyxia\'s Lair'], -- 奥妮克希亚的巢穴
-    [2677] = L['SHORT: Blackwing Lair'], -- 黑翼之巢
-    [3428] = L['SHORT: Ahn\'Qiraj Temple'], -- 安其拉神殿
-    [3456] = L['SHORT: Naxxramas'], -- 纳克萨玛斯
-    [1977] = L['SHORT: Zul\'Gurub'], -- 祖尔格拉布
-    [3429] = L['SHORT: Ruins of Ahn\'Qiraj'], -- 安其拉废墟
-    [2017] = L['SHORT: Stratholme'], -- 斯坦索姆
-    [2057] = L['SHORT: Scholomance'], -- 通灵学院
-    ['Dire Maul - North'] = L['SHORT: Dire Maul - North'], -- 厄运之槌 - 北
-    ['Dire Maul - West'] = L['SHORT: Dire Maul - West'], -- 厄运之槌 - 西
-    ['Dire Maul - East'] = L['SHORT: Dire Maul - East'], -- 厄运之槌 - 东
-    ['Upper Blackrock Spire'] = L['SHORT: Upper Blackrock Spire'], -- 黑石塔上层
-    ['Lower Blackrock Spire'] = L['SHORT: Lower Blackrock Spire'], -- 黑石塔下层
-    [1584] = L['SHORT: Blackrock Depths'], -- 黑石深渊
-    [1477] = L['SHORT: The Temple of Atal\'Hakkar'], -- 阿塔哈卡神庙
-    [2100] = L['SHORT: Maraudon'], -- 玛拉顿
-    [1176] = L['SHORT: Zul\'Farrak'], -- 祖尔法拉克
-    [1337] = L['SHORT: Uldaman'], -- 奥达曼
-    [722] = L['SHORT: Razorfen Downs'], -- 剃刀高地
-    ['Scarlet Monastery - Cathedral'] = L['SHORT: Scarlet Monastery - Cathedral'], -- 血色修道院 - 大教堂
-    ['Scarlet Monastery - Armory'] = L['SHORT: Scarlet Monastery - Armory'], -- 血色修道院 - 军械库
-    ['Scarlet Monastery - Library'] = L['SHORT: Scarlet Monastery - Library'], -- 血色修道院 - 图书馆
-    ['Scarlet Monastery - Graveyard'] = L['SHORT: Scarlet Monastery - Graveyard'], -- 血色修道院 - 墓地
-    [491] = L['SHORT: Razorfen Kraul'], -- 剃刀沼泽
-    [721] = L['SHORT: Gnomeregan'], -- 诺莫瑞根
-    [717] = L['SHORT: The Stockade'], -- 监狱
-    [719] = L['SHORT: Blackfathom Deeps'], -- 黑暗深渊
-    [209] = L['SHORT: Shadowfang Keep'], -- 影牙城堡
-    [718] = L['SHORT: Wailing Caverns'], -- 哀嚎洞穴
-    [1581] = L['SHORT: Deadmines'], -- 死亡矿井
-    [2437] = L['SHORT: Ragefire Chasm'], -- 怒焰裂谷
-    [2597] = L['SHORT: Alterac Valley'], -- 奥特兰克山谷
-    [3277] = L['SHORT: Warsong Gulch'], -- 战歌峡谷
-    [3358] = L['SHORT: Arathi Basin'], -- 阿拉希盆地
-    ['Lord Kazzak'] = L['SHORT: Lord Kazzak'], -- 卡扎克
-    ['Azuregos'] = L['SHORT: Azuregos'], -- 艾索雷葛斯
-    ['Ysondre'] = L['SHORT: Ysondre'], -- 伊森德雷
-    ['Taerar'] = L['SHORT: Taerar'], -- 泰拉尔
-    ['Emeriss'] = L['SHORT: Emeriss'], -- 艾莫莉丝
-    ['Lethon'] = L['SHORT: Lethon'], -- 莱索恩
-}
+-- local SHORT_NAMES = {
+--     [2717] = L['SHORT: Molten Core'], -- 熔火之心
+--     [2159] = L['SHORT: Onyxia\'s Lair'], -- 奥妮克希亚的巢穴
+--     [2677] = L['SHORT: Blackwing Lair'], -- 黑翼之巢
+--     [3428] = L['SHORT: Ahn\'Qiraj Temple'], -- 安其拉神殿
+--     [3456] = L['SHORT: Naxxramas'], -- 纳克萨玛斯
+--     [1977] = L['SHORT: Zul\'Gurub'], -- 祖尔格拉布
+--     [3429] = L['SHORT: Ruins of Ahn\'Qiraj'], -- 安其拉废墟
+--     [2017] = L['SHORT: Stratholme'], -- 斯坦索姆
+--     [2057] = L['SHORT: Scholomance'], -- 通灵学院
+--     ['Dire Maul - North'] = L['SHORT: Dire Maul - North'], -- 厄运之槌 - 北
+--     ['Dire Maul - West'] = L['SHORT: Dire Maul - West'], -- 厄运之槌 - 西
+--     ['Dire Maul - East'] = L['SHORT: Dire Maul - East'], -- 厄运之槌 - 东
+--     ['Upper Blackrock Spire'] = L['SHORT: Upper Blackrock Spire'], -- 黑石塔上层
+--     ['Lower Blackrock Spire'] = L['SHORT: Lower Blackrock Spire'], -- 黑石塔下层
+--     [1584] = L['SHORT: Blackrock Depths'], -- 黑石深渊
+--     [1477] = L['SHORT: The Temple of Atal\'Hakkar'], -- 阿塔哈卡神庙
+--     [2100] = L['SHORT: Maraudon'], -- 玛拉顿
+--     [1176] = L['SHORT: Zul\'Farrak'], -- 祖尔法拉克
+--     [1337] = L['SHORT: Uldaman'], -- 奥达曼
+--     [722] = L['SHORT: Razorfen Downs'], -- 剃刀高地
+--     ['Scarlet Monastery - Cathedral'] = L['SHORT: Scarlet Monastery - Cathedral'], -- 血色修道院 - 大教堂
+--     ['Scarlet Monastery - Armory'] = L['SHORT: Scarlet Monastery - Armory'], -- 血色修道院 - 军械库
+--     ['Scarlet Monastery - Library'] = L['SHORT: Scarlet Monastery - Library'], -- 血色修道院 - 图书馆
+--     ['Scarlet Monastery - Graveyard'] = L['SHORT: Scarlet Monastery - Graveyard'], -- 血色修道院 - 墓地
+--     [491] = L['SHORT: Razorfen Kraul'], -- 剃刀沼泽
+--     [721] = L['SHORT: Gnomeregan'], -- 诺莫瑞根
+--     [717] = L['SHORT: The Stockade'], -- 监狱
+--     [719] = L['SHORT: Blackfathom Deeps'], -- 黑暗深渊
+--     [209] = L['SHORT: Shadowfang Keep'], -- 影牙城堡
+--     [718] = L['SHORT: Wailing Caverns'], -- 哀嚎洞穴
+--     [1581] = L['SHORT: Deadmines'], -- 死亡矿井
+--     [2437] = L['SHORT: Ragefire Chasm'], -- 怒焰裂谷
+--     [2597] = L['SHORT: Alterac Valley'], -- 奥特兰克山谷
+--     [3277] = L['SHORT: Warsong Gulch'], -- 战歌峡谷
+--     [3358] = L['SHORT: Arathi Basin'], -- 阿拉希盆地
+--     ['Lord Kazzak'] = L['SHORT: Lord Kazzak'], -- 卡扎克
+--     ['Azuregos'] = L['SHORT: Azuregos'], -- 艾索雷葛斯
+--     ['Ysondre'] = L['SHORT: Ysondre'], -- 伊森德雷
+--     ['Taerar'] = L['SHORT: Taerar'], -- 泰拉尔
+--     ['Emeriss'] = L['SHORT: Emeriss'], -- 艾莫莉丝
+--     ['Lethon'] = L['SHORT: Lethon'], -- 莱索恩
+-- }
+
 local INSTANCE_NAMES = {
     [C_Map.GetAreaInfo(2717)] = C_Map.GetAreaInfo(2717), -- 熔火之心
     [C_Map.GetAreaInfo(2159)] = C_Map.GetAreaInfo(2159), -- 奥妮克希亚的巢穴
@@ -145,9 +146,9 @@ local INSTANCE_NAMES = {
 local function names(key)
     local id = tonumber(key)
     if id then
-        return {C_Map.GetAreaInfo(id), SHORT_NAMES[key]}
+        return {C_Map.GetAreaInfo(id)}
     end
-    return {L[key], SHORT_NAMES[key]}
+    return {L[key]}
 end
 
 local function base(name, path, minLevel, members, class)
@@ -300,14 +301,14 @@ local ACTIVITY_LIST = { --
 
 ACTIVITY_LIST[0] = {path = 'Other', name = CHANNEL, interval = 30, timeout = 60, category = CATEGORY_DATA['Other']}
 
-local SHORT_LIST={
-    L['SHORT: Molten Core'],
-    L['SHORT: Onyxia\'s Lair'],
-    L['SHORT: Blackwing Lair'],
-    L['SHORT: Ahn\'Qiraj Temple'],
-    L['SHORT: Naxxramas'],
-    L['SHORT: Zul\'Gurub'],
-    L['SHORT: Ruins of Ahn\'Qiraj']
+local QUICK_LIST={
+    L['QUICK: Molten Core'],
+    L['QUICK: Onyxia\'s Lair'],
+    L['QUICK: Blackwing Lair'],
+    L['QUICK: Ahn\'Qiraj Temple'],
+    L['QUICK: Naxxramas'],
+    L['QUICK: Zul\'Gurub'],
+    L['QUICK: Ruins of Ahn\'Qiraj']
 }
 
 
@@ -349,8 +350,8 @@ ns.ACTIVITY_MENU = {}
 ns.ACTIVITY_FILTER_MENU = {{text = ALL}}
 ns.MODE_MENU = {}
 ns.MODE_FILTER_MENU = {{text = ALL}}
-ns.SHORT_MENU = {}
-ns.SHORT_FILTER_MENU = {{text = ALL}}
+ns.QUICK_MENU = {}
+ns.QUICK_FILTER_MENU = {{text = ALL}}
 
 
 
@@ -402,11 +403,28 @@ for i, v in ipairs(CATEGORY_LIST) do
     end
 end
 
-for id, short in ipairs(SHORT_LIST) do
+for id, short in ipairs(QUICK_LIST) do
     -- print(short)
-    local menuItem = {text = short, value = id}
-    tinsert(ns.SHORT_MENU, menuItem)
-    tinsert(ns.SHORT_FILTER_MENU, menuItem)
+    local  minLevel = 60
+    -- local menuItem = {text = short, value = id}
+    tinsert(ns.QUICK_MENU, {
+        text = short,
+        hasArrow = false,
+        notClickable = true,
+        disabled = function()
+            return UnitLevel('player') < minLevel
+        end,
+        menuTable = children,
+    })
+    tinsert(ns.QUICK_FILTER_MENU,  {
+        text = short,
+        hasArrow = false,
+        notClickable = true,
+        disabled = function()
+            return UnitLevel('player') < minLevel
+        end,
+        menuTable = children,
+    })
 end
 
 function ns.NameToId(name)
