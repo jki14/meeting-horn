@@ -300,14 +300,14 @@ local ACTIVITY_LIST = { --
 
 ACTIVITY_LIST[0] = {path = 'Other', name = CHANNEL, interval = 30, timeout = 60, category = CATEGORY_DATA['Other']}
 
-local SHORT_LIST={
-    L['SHORT: Molten Core'],
-    L['SHORT: Onyxia\'s Lair'],
-    L['SHORT: Blackwing Lair'],
-    L['SHORT: Ahn\'Qiraj Temple'],
-    L['SHORT: Naxxramas'],
-    L['SHORT: Zul\'Gurub'],
-    L['SHORT: Ruins of Ahn\'Qiraj']
+local QUICK_LIST={
+    L['QUICK: Molten Core'],
+    L['QUICK: Onyxia\'s Lair'],
+    L['QUICK: Blackwing Lair'],
+    L['QUICK: Ahn\'Qiraj Temple'],
+    L['QUICK: Naxxramas'],
+    L['QUICK: Zul\'Gurub'],
+    L['QUICK: Ruins of Ahn\'Qiraj']
 }
 
 
@@ -349,8 +349,8 @@ ns.ACTIVITY_MENU = {}
 ns.ACTIVITY_FILTER_MENU = {{text = ALL}}
 ns.MODE_MENU = {}
 ns.MODE_FILTER_MENU = {{text = ALL}}
-ns.SHORT_MENU = {}
-ns.SHORT_FILTER_MENU = {{text = ALL}}
+ns.QUICK_MENU = {}
+ns.QUICK_FILTER_MENU = {{text = ALL}}
 
 
 
@@ -402,11 +402,27 @@ for i, v in ipairs(CATEGORY_LIST) do
     end
 end
 
-for id, short in ipairs(SHORT_LIST) do
-    -- print(short)
-    local menuItem = {text = short, value = id}
-    tinsert(ns.SHORT_MENU, menuItem)
-    tinsert(ns.SHORT_FILTER_MENU, menuItem)
+for id, quick in ipairs(QUICK_LIST) do
+    local menuItem = {text = quick, value = id}
+    local minLevel = 60
+    tinsert(ns.QUICK_MENU, 
+    {
+        text=quick,
+        value = id,
+        disabled = function()
+            return UnitLevel('player') < minLevel
+        end
+    }
+)
+    tinsert(ns.QUICK_FILTER_MENU,
+    {
+        text=quick,
+        value = id,
+        disabled = function()
+            return UnitLevel('player') < minLevel
+        end
+    }
+)
 end
 
 function ns.NameToId(name)

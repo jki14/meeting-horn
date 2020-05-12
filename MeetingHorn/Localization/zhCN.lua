@@ -139,7 +139,16 @@ L['Taerar'] = '泰拉尔' -- 泰拉尔
 L['Emeriss'] = '艾莫莉丝' -- 艾莫莉丝
 L['Lethon'] = '莱索恩' -- 莱索恩
 
-L['SHORT'] = '快速搜索'
+L['QUICK'] = '快速搜索'
+
+
+L['QUICK: Molten Core'] = 'MC' -- 熔火之心
+L['QUICK: Onyxia\'s Lair'] = '黑龙' -- 奥妮克希亚的巢穴
+L['QUICK: Blackwing Lair'] = 'BWL' -- 黑翼之巢
+L['QUICK: Ahn\'Qiraj Temple'] = 'TAQ' -- 安其拉神殿
+L['QUICK: Naxxramas'] = 'NAXX' -- 纳克萨玛斯
+L['QUICK: Zul\'Gurub'] = 'ZUG' -- 祖尔格拉布
+L['QUICK: Ruins of Ahn\'Qiraj'] = '废墟' -- 安其拉废墟
 
 L['SHORT: Molten Core'] = 'MC' -- 熔火之心
 L['SHORT: Onyxia\'s Lair'] = '黑龙' -- 奥妮克希亚的巢穴
@@ -148,7 +157,7 @@ L['SHORT: Ahn\'Qiraj Temple'] = 'TAQ' -- 安其拉神殿
 L['SHORT: Naxxramas'] = 'NAXX' -- 纳克萨玛斯
 L['SHORT: Zul\'Gurub'] = 'ZUG' -- 祖尔格拉布
 L['SHORT: Ruins of Ahn\'Qiraj'] = '废墟' -- 安其拉废墟
-L['SHORT: Stratholme'] = 'STSM' -- 斯坦索姆
+L['SHORT: Stratholme'] = 'ST' -- 斯坦索姆
 L['SHORT: Scholomance'] = 'TL' -- 通灵学院
 L['SHORT: Dire Maul - North'] = '厄运北' -- 厄运之槌 - 北
 L['SHORT: Dire Maul - West'] = '厄运西' -- 厄运之槌 - 西
@@ -177,7 +186,7 @@ L['SHORT: Alterac Valley'] = '奥山' -- 奥特兰克山谷
 L['SHORT: Warsong Gulch'] = '战歌' -- 战歌峡谷
 L['SHORT: Arathi Basin'] = '阿拉希' -- 阿拉希盆地
 L['SHORT: Lord Kazzak'] = '' -- 卡扎克
-L['SHORT: Azuregos'] = '蓝龙' -- 艾索雷葛斯
+L['SHORT: Azuregos'] = '' -- 艾索雷葛斯
 L['SHORT: Ysondre'] = '' -- 伊森德雷
 L['SHORT: Taerar'] = '' -- 泰拉尔
 L['SHORT: Emeriss'] = '' -- 艾莫莉丝
