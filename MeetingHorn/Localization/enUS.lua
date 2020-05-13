@@ -139,14 +139,6 @@ L['Lethon'] = 'Lethon' -- 莱索恩
 L['QUICK'] = 'Quick search'
 
 
-L['QUICK: Molten Core'] = 'MC' -- 熔火之心
-L['QUICK: Onyxia\'s Lair'] = 'Onyxia' -- 奥妮克希亚的巢穴
-L['QUICK: Blackwing Lair'] = 'BWL' -- 黑翼之巢
-L['QUICK: Ahn\'Qiraj Temple'] = 'TAQ' -- 安其拉神殿
-L['QUICK: Naxxramas'] = 'NAXX' -- 纳克萨玛斯
-L['QUICK: Zul\'Gurub'] = 'ZUG' -- 祖尔格拉布
-L['QUICK: Ruins of Ahn\'Qiraj'] = 'Ruins' -- 安其拉废墟
-
 L['SHORT: Molten Core'] = 'MC' -- 熔火之心
 L['SHORT: Onyxia\'s Lair'] = '黑龙' -- 奥妮克希亚的巢穴
 L['SHORT: Blackwing Lair'] = 'BWL' -- 黑翼之巢

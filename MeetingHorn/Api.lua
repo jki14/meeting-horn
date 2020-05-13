@@ -301,13 +301,13 @@ local ACTIVITY_LIST = { --
 ACTIVITY_LIST[0] = {path = 'Other', name = CHANNEL, interval = 30, timeout = 60, category = CATEGORY_DATA['Other']}
 
 local QUICK_LIST={
-    L['QUICK: Molten Core'],
-    L['QUICK: Onyxia\'s Lair'],
-    L['QUICK: Blackwing Lair'],
-    L['QUICK: Ahn\'Qiraj Temple'],
-    L['QUICK: Naxxramas'],
-    L['QUICK: Zul\'Gurub'],
-    L['QUICK: Ruins of Ahn\'Qiraj']
+    raid(2717), -- 熔火之心
+    raid(2159), -- 奥妮克希亚的巢穴
+    raid(2677), -- 黑翼之巢
+    raid(3428), -- 安其拉神殿
+    raid(3456), -- 纳克萨玛斯
+    raid(1977, 20), -- 祖尔格拉布
+    raid(3429, 20), -- 安其拉废墟
 }
 
 
@@ -402,12 +402,11 @@ for i, v in ipairs(CATEGORY_LIST) do
     end
 end
 
-for id, quick in ipairs(QUICK_LIST) do
-    local menuItem = {text = quick, value = id}
+for id, v in ipairs(QUICK_LIST) do
     local minLevel = 60
     tinsert(ns.QUICK_MENU, 
     {
-        text=quick,
+        text=v.shortName,
         value = id,
         disabled = function()
             return UnitLevel('player') < minLevel
@@ -416,7 +415,7 @@ for id, quick in ipairs(QUICK_LIST) do
 )
     tinsert(ns.QUICK_FILTER_MENU,
     {
-        text=quick,
+        text=v.shortName,
         value = id,
         disabled = function()
             return UnitLevel('player') < minLevel

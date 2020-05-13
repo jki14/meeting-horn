@@ -72,7 +72,7 @@ function Addon:OnInitialize()
     self:RegisterMessage('MEETINGHORN_OPTION_CHANGED_CHATFILTER')
     Addon:RegisterChatCommand("LFG", "Toggle")
     Addon:RegisterChatCommand("MeetingHorn", "Toggle")
-    ns.Message(format(L.WELCOME_MESSAGE,string.gsub(ns.ADDON_VERSION,'update ','')))
+    ns.Message(format(L.WELCOME_MESSAGE,ns.ADDON_VERSION))
 end
 function Addon:OnEnable()
     local keys = {'databroker', 'chatfilter', 'activityfilter'}
