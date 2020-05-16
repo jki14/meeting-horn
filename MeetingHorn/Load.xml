@@ -1,6 +1,5 @@
 <Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
-    <!-- <Include file="Libs\Libs.xml" /> -->
     <Script file="Localization\enUS.lua" />
     <Script file="Localization\deDE.lua" />
     <Script file="Localization\esES.lua" />
@@ -21,5 +20,5 @@
     <Script file="Core\LFG.lua" />
     <Script file="Core\Channel.lua" />
 
-    <!-- <Include file="Template.xml" /> -->
+    <Include file="UI\Template.xml" />
 </Ui>
