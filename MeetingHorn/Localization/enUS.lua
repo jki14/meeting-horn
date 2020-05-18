@@ -76,7 +76,7 @@ L['Activity Count'] = 'Activity Count'
 
 L['Toggle MeetingHorn'] = 'Toggle MeetingHorn'
 L['Toggle MeetingHorn key binding'] = 'Toggle MeetingHorn key binding'
-L['按键已绑定到|cffffd100%s|r，你确定要覆盖吗？'] = true
+L['按键已绑定到|cffffd100%s|r，你确定要覆盖吗？'] = 'Key binding has been settle on |cffffd100%s|r, confirm to override?'
 
 L['Options'] = 'Options'
 L['启用关键字过滤'] = true
