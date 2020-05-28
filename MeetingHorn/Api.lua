@@ -31,6 +31,7 @@ ns.ADDON_VERSION = GetAddOnMetadata(ADDON_NAME, 'Version')
 ns.ADDON_TAG = '<' .. L.ADDON_NAME .. '>'
 
 ns.APPLICANT_STATUS = {Normal = 1, Invited = 2, Declined = 3, Joined = 4}
+local LibItemInfo = LibStub:GetLibrary("LibItemInfo.1000")
 
 local function invert(list, key)
     local result = {}
@@ -456,6 +457,7 @@ end
 ---@param path string
 ---@return MeetingHornCategoryData
 function ns.GetCategoryData(path)
+    -- print_r(CATEGORY_DATA[path])
     return CATEGORY_DATA[path]
 end
 
@@ -501,48 +503,50 @@ local function IsNoRangeWeaponClass()
     return class == 'PALADIN' or class == 'SHAMAN' or class == 'DRUID'
 end
 
-local ITEMS = { --
-    [1] = GetSlotItemLevel,
-    [2] = GetSlotItemLevel,
-    [3] = GetSlotItemLevel,
-    [5] = GetSlotItemLevel,
-    [6] = GetSlotItemLevel,
-    [7] = GetSlotItemLevel,
-    [8] = GetSlotItemLevel,
-    [9] = GetSlotItemLevel,
-    [10] = GetSlotItemLevel,
-    [11] = GetSlotItemLevel,
-    [12] = GetSlotItemLevel,
-    [13] = GetSlotItemLevel,
-    [14] = GetSlotItemLevel,
-    [15] = GetSlotItemLevel,
-    [16] = function(slot)
-        local id = GetInventoryItemID('player', slot)
-        if not id then
-            return 0
-        end
-        local itemLevel, _, _, _, _, itemEquipLoc = select(4, GetItemInfo(id))
-        if itemEquipLoc == 'INVTYPE_2HWEAPON' then
-            return itemLevel * 2
-        end
-        return itemLevel
-    end,
-    [17] = GetSlotItemLevel,
-    [18] = function()
-        if IsNoRangeWeaponClass() then
-            return 0
-        end
-        return GetSlotItemLevel(18)
-    end,
-}
+-- local ITEMS = { --
+--     [1] = GetSlotItemLevel,
+--     [2] = GetSlotItemLevel,
+--     [3] = GetSlotItemLevel,
+--     [5] = GetSlotItemLevel,
+--     [6] = GetSlotItemLevel,
+--     [7] = GetSlotItemLevel,
+--     [8] = GetSlotItemLevel,
+--     [9] = GetSlotItemLevel,
+--     [10] = GetSlotItemLevel,
+--     [11] = GetSlotItemLevel,
+--     [12] = GetSlotItemLevel,
+--     [13] = GetSlotItemLevel,
+--     [14] = GetSlotItemLevel,
+--     [15] = GetSlotItemLevel,
+--     [16] = function(slot)
+--         local id = GetInventoryItemID('player', slot)
+--         if not id then
+--             return 0
+--         end
+--         local itemLevel, _, _, _, _, itemEquipLoc = select(4, GetItemInfo(id))
+--         if itemEquipLoc == 'INVTYPE_2HWEAPON' then
+--             return itemLevel * 2
+--         end
+--         return itemLevel
+--     end,
+--     [17] = GetSlotItemLevel,
+--     [18] = function()
+--         if IsNoRangeWeaponClass() then
+--             return 0
+--         end
+--         return GetSlotItemLevel(18)
+--     end,
+-- }
 
-function ns.GetPlayerItemLevel()
-    local itemLevel = 0
-    for slot, func in pairs(ITEMS) do
-        itemLevel = itemLevel + func(slot)
-    end
-    local count = IsNoRangeWeaponClass() and 16 or 17
-    return floor(itemLevel / count * 10) / 10
+function ns.GetPlayerItemLevel(unit)
+    -- local itemLevel = 0
+    -- for slot, func in pairs(ITEMS) do
+    --     itemLevel = itemLevel + func(slot)
+    -- end
+    -- local count = IsNoRangeWeaponClass() and 16 or 17
+    -- return floor(itemLevel / count * 10) / 10
+    local playerItemLevel  = LibItemInfo:GetUnitItemLevel(unit)
+    return playerItemLevel
 end
 
 function ns.GetRaidId(raidName)
@@ -625,4 +629,38 @@ end
 
 function ns.ParseRaidTag(text)
     return (text:gsub('{([^{]+)}', replace))
+end
+
+function print_r ( t )  
+    local print_r_cache={}
+    local function sub_print_r(t,indent)
+        if (print_r_cache[tostring(t)]) then
+            print(indent.."*"..tostring(t))
+        else
+            print_r_cache[tostring(t)]=true
+            if (type(t)=="table") then
+                for pos,val in pairs(t) do
+                    if (type(val)=="table") then
+                        print(indent.."["..pos.."] => "..tostring(t).." {")
+                        sub_print_r(val,indent..string.rep(" ",string.len(pos)+8))
+                        print(indent..string.rep(" ",string.len(pos)+6).."}")
+                    elseif (type(val)=="string") then
+                        print(indent.."["..pos..'] => "'..val..'"')
+                    else
+                        print(indent.."["..pos.."] => "..tostring(val))
+                    end
+                end
+            else
+                print(indent..tostring(t))
+            end
+        end
+    end
+    if (type(t)=="table") then
+        print(tostring(t).." {")
+        sub_print_r(t,"  ")
+        print("}")
+    else
+        sub_print_r(t,"  ")
+    end
+    print()
 end
