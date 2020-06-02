@@ -58,7 +58,6 @@ function Creator:Constructor()
     self:RegisterMessage('MEETINGHORN_CITY_CHANGED', 'Update')
     self:SetScript('OnShow', self.Update)
 end
-
 function IsInTable(value, tbl)
     for k,v in ipairs(tbl) do
       if v == value then
@@ -67,7 +66,6 @@ function IsInTable(value, tbl)
     end
     return false;
 end
-
 function Creator:OnShow()
     RequestRaidInfo()
     self:Update()
@@ -115,7 +113,6 @@ function Creator:OnCreateClick()
     local instanceName = ns.GetActivityData(activityId).instanceName
     local Name = ns.GetActivityData(activityId).name
     local Faction, RivalCamp = GetFaction()
-    
     if instanceName then
         local raidId = ns.GetRaidId(instanceName)
         if raidId ~= -1 then
