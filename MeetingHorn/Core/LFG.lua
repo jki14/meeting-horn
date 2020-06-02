@@ -405,7 +405,7 @@ function LFG:Search(path, activityId, modeId, search)
 end
 
 function LFG:SERVER_CONNECTED()
-    self:SendServer('SLOGIN', ns.ADDON_VERSION, ns.GetPlayerItemLevel(), UnitGUID('player'), UnitLevel('player'))
+    self:SendServer('SLOGIN', ns.ADDON_VERSION, ns.GetPlayerItemLevel('player'), UnitGUID('player'), UnitLevel('player'))
 end
 
 function LFG:SNEWVERSION(_, version, url, changelog)

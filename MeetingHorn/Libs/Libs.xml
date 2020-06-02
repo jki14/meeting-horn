@@ -28,6 +28,7 @@
 	<!-- GoodLeader，MeetingHorn ~begin~ -->
     <Script file="LibClass-2.0\Class-2.0.lua"/>
     <Script file="LibCommSocket-3.0\Socket.lua"/>
+	<Script file="LibItemInfo.lua"/>
     <Include file="tdGUI\Load.xml"/>
 	<!-- GoodLeader，MeetingHorn ~end~ -->
 </Ui>
