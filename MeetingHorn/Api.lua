@@ -44,7 +44,7 @@ local BASE_TIMEOUT = 90
 
 local function category(path, name, channel, interval, timeout, inCity)
     if not channel then
-        channel = {L['CHANNEL: Group'], '寻求组队'}
+        channel = {L['CHANNEL: Group'], L['CHANNEL: LFG']}
     end
 
     local channels = {}
@@ -135,7 +135,7 @@ local INSTANCE_NAMES = {
     [C_Map.GetAreaInfo(2717)] = C_Map.GetAreaInfo(2717), -- 熔火之心
     [C_Map.GetAreaInfo(2159)] = C_Map.GetAreaInfo(2159), -- 奥妮克希亚的巢穴
     [C_Map.GetAreaInfo(2677)] = C_Map.GetAreaInfo(2677), -- 黑翼之巢
-    [C_Map.GetAreaInfo(3428)] = L['Ahn\'Qiraj Temple'], -- 安其拉神殿
+    [C_Map.GetAreaInfo(3428)] = C_Map.GetAreaInfo(3428), -- 安其拉神殿
     [C_Map.GetAreaInfo(3456)] = C_Map.GetAreaInfo(3456), -- 纳克萨玛斯
     [C_Map.GetAreaInfo(1977)] = C_Map.GetAreaInfo(1977), -- 祖尔格拉布
     [C_Map.GetAreaInfo(3429)] = C_Map.GetAreaInfo(3429), -- 安其拉废墟
