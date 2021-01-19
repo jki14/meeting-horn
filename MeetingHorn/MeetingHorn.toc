@@ -1,7 +1,7 @@
 ## Interface: 11306
 ## Title: MeetingHorn
 ## Title-zhCN: 集结号
-## Version: 1.5.1
+## Version: 1.5.2
 ## SavedVariables: MEETINGHORN_DB
 ## SavedVariablesPerCharacter: MEETINGHORN_DB_CHARACTER_MEMBERS
 
