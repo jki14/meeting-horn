@@ -4,6 +4,7 @@
     <Script file="ListView.lua" />
     <Script file="CountdownButton.lua" />
     <Script file="InputDialog.lua" />
+    <Script file="QRCodeWidget.lua" />
     <Script file="MainPanel.lua" />
     <Script file="Browser.lua" />
     <Script file="Applicant.lua" />
@@ -12,4 +13,11 @@
     <Script file="DataBroker.lua" />
     <Script file="Options.lua" />
     <Script file="Filters.lua" />
+    <Script file="EncounterInfoBase.lua" />
+    <Script file="EncounterInfo.lua" />
+    <Script file="EncounterInfoSummary.lua" />
+    <Script file="EncounterInfoPanel.lua" />
+    <Script file="Encounter.lua" />
+    <Script file="Recent.lua" />
+    <Script file="Challenge.lua" />
 </Ui>
