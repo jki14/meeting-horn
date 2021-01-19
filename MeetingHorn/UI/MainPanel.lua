@@ -1,4 +1,3 @@
-
 ---@type ns
 local ADDON_NAME, ns = ...
 local L = ns.L
@@ -19,8 +18,11 @@ function MainPanel:Constructor()
     self:SetupTabs({
         {L['Search Activity'], self.Browser}, --
         {L['Create Activity'], self.Manage}, --
-        {L['Help'], self.Help}, --
+        {L['Encounter'], self.Encounter}, --
+        {L['Recent members'], self.Recent}, --
+        {L['Challenge'], self.Challenge}, --
         {L['Options'], self.Options}, --
+        {L['Help'], self.Help}, --
     })
 
     self.portrait:SetTexture([[Interface\AddOns\MeetingHorn\Media\Logo]])
@@ -45,6 +47,9 @@ function MainPanel:Constructor()
     ns.UI.Options:Bind(self.Options.Options)
     ns.UI.Filters:Bind(self.Options.Filters)
     ns.UI.Chat:Bind(self.Manage.Chat)
+    ns.UI.Encounter:Bind(self.Encounter)
+    ns.UI.Recent:Bind(self.Recent)
+    ns.UI.Challenge:Bind(self.Challenge)
 
     self.Manage.Applicant:Hide()
 
@@ -119,8 +124,20 @@ function MainPanel:UpdateTabFrames()
     end
 end
 
+function MainPanel:GetTabIndex(n)
+    if type(n) == 'number' then
+        return n
+    end
+
+    for i, tab in ipairs(self.Tabs) do
+        if tab.frame == n then
+            return i
+        end
+    end
+end
+
 function MainPanel:SetTab(n)
-    PanelTemplates_SetTab(self, n)
+    PanelTemplates_SetTab(self, self:GetTabIndex(n))
     self:UpdateTabFrames()
 end
 

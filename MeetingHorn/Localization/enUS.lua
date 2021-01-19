@@ -23,6 +23,13 @@ L['Close Activity'] = 'Close Activity'
 L['Update Activity'] = 'Update Activity'
 L['Members'] = 'Members'
 L['Whisper'] = 'Whisper'
+L['Encounter'] = '冒险指南'
+L['Recent members'] = '最近队友'
+L['Instance Name'] = '副本名称'
+L['Invite All'] = '全部邀请'
+L['职责攻略'] = true
+L['技能'] = true
+L['Challenge'] = '挑战活动'
 
 L['Help'] = 'Help'
 L['Manage'] = 'Manage'
@@ -150,3 +157,44 @@ L['SHORT: Ysondre'] = '' -- 伊森德雷
 L['SHORT: Taerar'] = '' -- 泰拉尔
 L['SHORT: Emeriss'] = '' -- 艾莫莉丝
 L['SHORT: Lethon'] = '' -- 莱索恩
+
+L['玛丁雷少校'] = true
+L['暴风城的城民和盟友们'] = true
+L['看看强大的联盟吧'] = true
+L['艾法希比元帅'] = true
+L['联盟的人民们'] = true
+L['兴奋起来'] = true
+L['伦萨克'] = true
+L['部落的人民，奥格瑞玛的居民'] = true
+L['在屠龙大军的战斗号角声中精神抖擞地前进吧'] = true
+L['萨鲁法尔大王'] = true
+L['奈法利安被杀掉了'] = true
+L['为他的胜利而狂欢吧'] = true
+L['萨尔'] = true
+L['奈法利安被杀掉了'] = true
+L['为他的胜利而狂欢吧'] = true
+L['为你们的英雄而欢庆'] = true
+L['沐浴在我的力量中吧'] = true
+
+L['二维码尺寸过小'] = true
+L['加载中'] = true
+
+L['欢迎来到%s，打开集结号查看|cff47e53d|Hmeetinghornencounter:%s|h[Boss击杀攻略]|r。']
+= true
+L['你在与[%s]的战斗中阵亡，|cff00ffff|Hmeetinghornencounter:%s:%s:%s|h[点击查看Boss攻略]|h|r。']
+= true
+L['近战输出者预警'] = true
+L['远程输出者预警'] = true
+
+L['INVALID_GUID'] = '角色ID错误'
+L['NO_ACTIVE_ACTIVITY '] = '当前没有挑战任务'
+L['ACTIVITY_NOT_FINISH'] = '任务尚未完成'
+L['ACTIVITY_REWARD_FETCHED '] = '任务奖励已领取'
+L['ACTIVITY_FETCH_REWARD_FAILED '] = '领取任务奖励失败'
+L['ACTIVITY_REWARD_OUT_OF_DATE'] = '任务奖励领取过期'
+
+L.CHALLENGE_RULES = [[●本次活动所有奖励均在插件上兑换领取，不安装插件的玩家将无法兑换相应的奖励；
+●活动到期后，击杀或经验值将不再被计入本次活动。已完成活动目标的玩家，仍可以在2周内继续领取；
+●同一种虚拟物品奖励，每个角色只能领取一次，不同挑战活动的不同虚拟物品奖励，每个角色达到挑战目标后都可以领取，不同角色可以重复参与活动并在达到挑战目标后领取对应的虚拟物品奖励；
+●若在72小时内奖励并没有发放至游戏角色邮箱，请联系人工客服进行反馈；
+●本次挑战活动由于数量较大，当您击杀Boss后，请点击进度条上的【刷新进度】按钮查看最新进度，刷新后每30分钟更新一次数据结果；]]
