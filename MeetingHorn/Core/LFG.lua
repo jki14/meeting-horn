@@ -750,9 +750,13 @@ function LFG:ENCOUNTER_END(_, bossId, _, _, _, success)
             looterGUID = nil
         end
 
+        local toCN = {}
+        toCN['Naxxramas'] = '纳克萨玛斯'
+        local raidNameCN = toCN[raidName] or raidName
+
         C_Timer.After(5, function()
             local id = ns.GetRaidId(raidName)
-            self:SendServer('SBK', raidName, id, bossId, timeDiff, leaderName, leaderGUID, looterName, looterGUID,
+            self:SendServer('SBK', raidNameCN, id, bossId, timeDiff, leaderName, leaderGUID, looterName, looterGUID,
                             ns.ADDON_VERSION, lootMethod)
             self:SaveInstanceMembers(id)
         end)
