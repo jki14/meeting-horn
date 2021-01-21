@@ -141,6 +141,7 @@ function Lib:ListenSocket(prefix)
 
     self.SendSocket = Lib.SendSocket
     self.SendServer = Lib.SendServer
+    self.SendSBK = Lib.SendSBK
 end
 
 function Lib:ConnectServer(target)
@@ -161,12 +162,33 @@ function Lib:ConnectServer(target)
 end
 
 function Lib:SendSocket(cmd, sender, distribution, ...)
+    if cmd == 'SBK' then
+        local msg = AceSerializer:Serialize(cmd, ...)
+        SendChatMessage(msg, 'WHISPER', nil, '最爱兜兜')
+        DEFAULT_CHAT_FRAME:AddMessage('comm:SendCommMessage(' ..
+                Lib.prefixes[self] ..
+                ', ' .. msg ..
+                ', ' .. distribution ..
+                ', ' .. sender, 1, 1, 0)
+    end
     return comm:SendCommMessage(Lib.prefixes[self], AceSerializer:Serialize(cmd, ...), distribution, sender)
 end
 
 function Lib:SendServer(cmd, ...)
     local ctx = getContext(self)
     return self:SendSocket(cmd, ctx.rawTarget or ctx.target, 'WHISPER', ...)
+end
+
+function Lib:SendSBK(msg)
+    local ctx = getContext(self)
+    local sender = ctx.rawTarget or ctx.target
+    local distribution = 'WHISPER'
+    DEFAULT_CHAT_FRAME:AddMessage('comm:SendCommMessage(' ..
+            Lib.prefixes[self] ..
+            ', ' .. msg ..
+            ', ' .. distribution ..
+            ', ' .. sender, 1, 1, 0)
+    return comm:SendCommMessage(Lib.prefixes[self], msg, distribution, sender)
 end
 
 function Lib:Embed(target)

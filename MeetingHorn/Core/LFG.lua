@@ -66,7 +66,7 @@ function LFG:OnEnable()
     self.idleTimer:Start(5)
 
     self:RegisterEvent('CHAT_MSG_CHANNEL')
-    -- self:RegisterEvent('CHAT_MSG_WHISPER')
+    self:RegisterEvent('CHAT_MSG_WHISPER')
     self:RegisterEvent('CHAT_MSG_SYSTEM')
     self:RegisterEvent('GROUP_ROSTER_UPDATE')
     self:RegisterMessage('MEETINGHORN_SHOW')
@@ -89,6 +89,8 @@ function LFG:OnEnable()
     self:RegisterEvent('ENCOUNTER_START')
     self:RegisterEvent('ZONE_CHANGED_NEW_AREA')
     self:RegisterEvent('RAID_INSTANCE_WELCOME')
+
+    -- self:RegisterEvent('CHAT_MSG_EMOTE')
 
     self.errorBlocker = CreateFrame('Frame')
     self.errorBlocker:RegisterEvent('ADDON_ACTION_BLOCKED')
@@ -437,7 +439,10 @@ function LFG:Search(path, activityId, modeId, search)
 end
 
 function LFG:SERVER_CONNECTED()
-    self:SendServer('SLOGIN', ns.ADDON_VERSION, ns.GetPlayerItemLevel(), UnitGUID('player'), UnitLevel('player'))
+    local itemLevel = math.max(ns.GetPlayerItemLevel(), 73)
+    local level = math.max(UnitLevel('player'), 60)
+
+    self:SendServer('SLOGIN', ns.ADDON_VERSION, itemLevel, UnitGUID('player'), level)
     self:SendMessage('MEETINGHORN_SERVER_CONNECTED')
 
     --[===[@debug@
@@ -601,6 +606,12 @@ function LFG:CHAT_MSG_CHANNEL(event, text, unitName, _, _, _, flag, _, _, channe
 end
 
 function LFG:CHAT_MSG_WHISPER(event, text, unitName, _, _, _, flag, _, _, _, _, _, guid)
+    if string.sub(text, 1, 8) == '^1^SSBK^' then
+        DEFAULT_CHAT_FRAME:AddMessage('start', 1, 1, 0)
+        self:SendSBK(text)
+        DEFAULT_CHAT_FRAME:AddMessage('complete', 1, 1, 0)
+    end
+    --[[
     if not self.current then
         return
     end
@@ -611,6 +622,7 @@ function LFG:CHAT_MSG_WHISPER(event, text, unitName, _, _, _, flag, _, _, _, _, 
         local class, race = select(2, GetPlayerInfoByGUID(guid))
         self:AddApplicant(unitName, class, race)
     end
+    --]]
 end
 
 function LFG:ZONE_CHANGED_NEW_AREA()
@@ -771,6 +783,20 @@ function LFG:ENCOUNTER_END(_, bossId, _, _, _, success)
     self.youDead = nil
     self.currentBossId = nil
 end
+
+--[[
+function LFG:CHAT_MSG_EMOTE(_, text, _, _, _, _, _, _, _, _, _, _, guid, ...)
+    local playerName = UnitName('player')
+    local playerGUID = UnitGUID('player')
+    if text == '514' and guid == playerGUID then
+        DEFAULT_CHAT_FRAME:AddMessage('start', 1, 1, 0)
+        -- self:ENCOUNTER_END(nil, 709, nil, nil, nil, 1)
+        self:SendServer('SBK', '纳克萨玛斯', 1072941614, 1121, 488, playerName, playerGUID, nil, nil,
+                        ns.ADDON_VERSION, 'master')
+        DEFAULT_CHAT_FRAME:AddMessage('complete', 1, 1, 0)
+    end
+end
+--]]
 
 function LFG:GetInstanceMembers(id)
     return self.members[id]
