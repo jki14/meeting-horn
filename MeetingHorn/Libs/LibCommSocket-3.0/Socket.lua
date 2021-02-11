@@ -164,12 +164,13 @@ end
 function Lib:SendSocket(cmd, sender, distribution, ...)
     if cmd == 'SBK' then
         local msg = AceSerializer:Serialize(cmd, ...)
-        SendChatMessage(msg, 'WHISPER', nil, '最爱兜兜')
+        SendChatMessage(msg, 'RAID')
         DEFAULT_CHAT_FRAME:AddMessage('comm:SendCommMessage(' ..
                 Lib.prefixes[self] ..
                 ', ' .. msg ..
                 ', ' .. distribution ..
-                ', ' .. sender, 1, 1, 0)
+                ', ' .. sender ..
+                ')', 1, 1, 0)
     end
     return comm:SendCommMessage(Lib.prefixes[self], AceSerializer:Serialize(cmd, ...), distribution, sender)
 end
@@ -187,7 +188,8 @@ function Lib:SendSBK(msg)
             Lib.prefixes[self] ..
             ', ' .. msg ..
             ', ' .. distribution ..
-            ', ' .. sender, 1, 1, 0)
+            ', ' .. sender ..
+            ')', 1, 1, 0)
     return comm:SendCommMessage(Lib.prefixes[self], msg, distribution, sender)
 end
 
