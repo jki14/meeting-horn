@@ -791,7 +791,8 @@ function LFG:CHAT_MSG_EMOTE(_, text, _, _, _, _, _, _, _, _, _, _, guid, ...)
         local bossId = 1121
 
         local raidName = '纳克萨玛斯'
-        local leaderName, leaderGUID = UnitName('player'), UnitGUID('player')
+        -- local leaderName, leaderGUID = UnitName('player'), UnitGUID('player')
+        local leaderName, leaderGUID = nil, nil
         local looterName, looterGUID = nil, nil
         local lootMethod = 'master'
 
@@ -811,7 +812,8 @@ function LFG:CHAT_MSG_RAID_LEADER(_, text, _, _, _, _, _, _, _, _, _, _, guid, .
         local bossId = 1121
 
         local raidName = '纳克萨玛斯'
-        local leaderName, leaderGUID = ns.GetGroupLeader()
+        -- local leaderName, leaderGUID = ns.GetGroupLeader()
+        local leaderName, leaderGUID = nil, nil
         local looterName, looterGUID = nil, nil
         local lootMethod = 'master'
 
