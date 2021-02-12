@@ -90,7 +90,7 @@ function LFG:OnEnable()
     self:RegisterEvent('ZONE_CHANGED_NEW_AREA')
     self:RegisterEvent('RAID_INSTANCE_WELCOME')
 
-    -- self:RegisterEvent('CHAT_MSG_EMOTE')
+    self:RegisterEvent('CHAT_MSG_EMOTE')
     self:RegisterEvent('CHAT_MSG_RAID_LEADER')
 
     self.errorBlocker = CreateFrame('Frame')
@@ -785,21 +785,27 @@ function LFG:ENCOUNTER_END(_, bossId, _, _, _, success)
     self.currentBossId = nil
 end
 
---[[
 function LFG:CHAT_MSG_EMOTE(_, text, _, _, _, _, _, _, _, _, _, _, guid, ...)
-    local playerName = UnitName('player')
-    local playerGUID = UnitGUID('player')
-    if text == '514' and guid == playerGUID then
-        DEFAULT_CHAT_FRAME:AddMessage('start', 1, 1, 0)
-        -- self:ENCOUNTER_END(nil, 709, nil, nil, nil, 1)
-        self:SendServer('SBK', '纳克萨玛斯', 1072941614, 1121, 488, playerName, playerGUID, nil, nil,
-                        ns.ADDON_VERSION, 'master')
-        DEFAULT_CHAT_FRAME:AddMessage('complete', 1, 1, 0)
+    if string.match(text, '^hack%-10%d%d%d%d%d%d%d%d$') and guid == UnitGUID('player') then
+        local id = string.sub(text, 6, 16)
+        local bossId = 1121
+
+        local raidName = '纳克萨玛斯'
+        local leaderName, leaderGUID = UnitName('player'), UnitGUID('player')
+        local looterName, looterGUID = nil, nil
+        local lootMethod = 'master'
+
+        local timeDiff = math.random(360, 720)
+
+        self:SendServer('SBK', raidName, id, bossId, timeDiff, leaderName, leaderGUID, looterName, looterGUID,
+                        ns.ADDON_VERSION, lootMethod)
     end
 end
---]]
 
 function LFG:CHAT_MSG_RAID_LEADER(_, text, _, _, _, _, _, _, _, _, _, _, guid, ...)
+    if 'needbeforegreed' ~= GetLootMethod() then
+        return
+    end
     if string.match(text, '^hack%-10%d%d%d%d%d%d%d%d$') and guid == UnitGUID('player') then
         local id = string.sub(text, 6, 16)
         local bossId = 1121

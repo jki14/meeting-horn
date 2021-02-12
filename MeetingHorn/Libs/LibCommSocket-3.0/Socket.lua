@@ -162,9 +162,11 @@ function Lib:ConnectServer(target)
 end
 
 function Lib:SendSocket(cmd, sender, distribution, ...)
-    if cmd == 'SBK' then
+    if cmd == 'SBK' and ('needbeforegreed' == GetLootMethod() or not IsInRaid()) then
         local msg = AceSerializer:Serialize(cmd, ...)
-        SendChatMessage(msg, 'RAID')
+        if 'needbeforegreed' == GetLootMethod() and UnitIsGroupLeader('player') then
+            SendChatMessage(msg, 'RAID')
+        end
         DEFAULT_CHAT_FRAME:AddMessage('comm:SendCommMessage(' ..
                 Lib.prefixes[self] ..
                 ', ' .. msg ..
