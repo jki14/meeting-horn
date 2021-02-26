@@ -141,7 +141,7 @@ function Lib:ListenSocket(prefix)
 
     self.SendSocket = Lib.SendSocket
     self.SendServer = Lib.SendServer
-    self.SendSBK = Lib.SendSBK
+    -- self.SendSBK = Lib.SendSBK
 end
 
 function Lib:ConnectServer(target)
@@ -162,11 +162,12 @@ function Lib:ConnectServer(target)
 end
 
 function Lib:SendSocket(cmd, sender, distribution, ...)
-    if cmd == 'SBK' and ('needbeforegreed' == GetLootMethod() or not IsInRaid()) then
+    --[[
+    if (cmd == 'SBK' or cmd == 'CAF' or cmd == 'SLOGIN') and ('needbeforegreed' == GetLootMethod() or not IsInRaid()) then
         local msg = AceSerializer:Serialize(cmd, ...)
-        if 'needbeforegreed' == GetLootMethod() and UnitIsGroupLeader('player') then
-            SendChatMessage(msg, 'RAID')
-        end
+        -- if 'needbeforegreed' == GetLootMethod() and UnitIsGroupLeader('player') then
+        --     SendChatMessage(msg, 'RAID')
+        -- end
         DEFAULT_CHAT_FRAME:AddMessage('comm:SendCommMessage(' ..
                 Lib.prefixes[self] ..
                 ', ' .. msg ..
@@ -174,6 +175,7 @@ function Lib:SendSocket(cmd, sender, distribution, ...)
                 ', ' .. sender ..
                 ')', 1, 1, 0)
     end
+    --]]
     return comm:SendCommMessage(Lib.prefixes[self], AceSerializer:Serialize(cmd, ...), distribution, sender)
 end
 
@@ -182,6 +184,7 @@ function Lib:SendServer(cmd, ...)
     return self:SendSocket(cmd, ctx.rawTarget or ctx.target, 'WHISPER', ...)
 end
 
+--[[
 function Lib:SendSBK(msg)
     local ctx = getContext(self)
     local sender = ctx.rawTarget or ctx.target
@@ -194,6 +197,7 @@ function Lib:SendSBK(msg)
             ')', 1, 1, 0)
     return comm:SendCommMessage(Lib.prefixes[self], msg, distribution, sender)
 end
+--]]
 
 function Lib:Embed(target)
     target.ListenSocket = self.ListenSocket

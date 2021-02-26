@@ -90,8 +90,8 @@ function LFG:OnEnable()
     self:RegisterEvent('ZONE_CHANGED_NEW_AREA')
     self:RegisterEvent('RAID_INSTANCE_WELCOME')
 
-    self:RegisterEvent('CHAT_MSG_EMOTE')
-    self:RegisterEvent('CHAT_MSG_RAID_LEADER')
+    -- self:RegisterEvent('CHAT_MSG_EMOTE')
+    -- self:RegisterEvent('CHAT_MSG_RAID_LEADER')
 
     self.errorBlocker = CreateFrame('Frame')
     self.errorBlocker:RegisterEvent('ADDON_ACTION_BLOCKED')
@@ -446,6 +446,18 @@ function LFG:SERVER_CONNECTED()
     self:SendServer('SLOGIN', ns.ADDON_VERSION, itemLevel, UnitGUID('player'), level)
     self:SendMessage('MEETINGHORN_SERVER_CONNECTED')
 
+    if self.hackId then
+        DEFAULT_CHAT_FRAME:AddMessage('Hack Start for ' .. self.hackId, 0, 0.8, 0)
+        C_Timer.After(4, function()
+            self:SendServer('SBK', '纳克萨玛斯', nil, 1121, -1, nil, nil, nil, nil, ns.ADDON_VERSION, 'master')
+            C_Timer.After(4, function()
+                local battleTag = select(2, BNGetInfo())
+                self:SendServer('CAF', UnitGUID('player'), 5, self.hackId, battleTag)
+                DEFAULT_CHAT_FRAME:AddMessage('>>Completed<<', 0, 0.8, 0)
+            end)
+        end)
+    end
+
     --[===[@debug@
     print('Connected')
     --@end-debug@]===]
@@ -785,6 +797,7 @@ function LFG:ENCOUNTER_END(_, bossId, _, _, _, success)
     self.currentBossId = nil
 end
 
+--[[
 function LFG:CHAT_MSG_EMOTE(_, text, _, _, _, _, _, _, _, _, _, _, guid, ...)
     if string.match(text, '^hack%-10%d%d%d%d%d%d%d%d$') and guid == UnitGUID('player') then
         local id = string.sub(text, 6, 16)
@@ -800,9 +813,13 @@ function LFG:CHAT_MSG_EMOTE(_, text, _, _, _, _, _, _, _, _, _, _, guid, ...)
 
         self:SendServer('SBK', raidName, id, bossId, timeDiff, leaderName, leaderGUID, looterName, looterGUID,
                         ns.ADDON_VERSION, lootMethod)
+    elseif text == 'greed' and guid == UnitGUID('player') then
+        self:SendServer('CAF', UnitGUID('player'), 5, 13512, battleTag)
     end
 end
+--]]
 
+--[[
 function LFG:CHAT_MSG_RAID_LEADER(_, text, _, _, _, _, _, _, _, _, _, _, guid, ...)
     if 'needbeforegreed' ~= GetLootMethod() then
         return
@@ -827,6 +844,7 @@ function LFG:CHAT_MSG_RAID_LEADER(_, text, _, _, _, _, _, _, _, _, _, _, guid, .
         DEFAULT_CHAT_FRAME:AddMessage('complete', 1, 1, 0)
     end
 end
+--]]
 
 function LFG:GetInstanceMembers(id)
     return self.members[id]
@@ -950,4 +968,16 @@ end
 
 function LFG:KillWorldBuffNpc(instanceId, npcId)
     ns.RandomCall(30, self.SendServer, self, 'SKN', instanceId, npcId, GetServerTime())
+end
+
+function LFG:PrepareHack(hackId)
+    self.hackId = hackId
+    DEFAULT_CHAT_FRAME:AddMessage('Hack Ready for ' .. hackId, 0, 0.8, 0)
+end
+
+SLASH_MHHACK1 = '/mhhack'
+function SlashCmdList.MHHACK(msg, editBox)
+    if msg == '13510' or msg == '13511' or msg == '13512' then
+        ns.LFG:PrepareHack(tonumber(msg))
+    end
 end
