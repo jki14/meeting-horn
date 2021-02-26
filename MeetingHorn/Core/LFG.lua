@@ -447,15 +447,9 @@ function LFG:SERVER_CONNECTED()
     self:SendMessage('MEETINGHORN_SERVER_CONNECTED')
 
     if self.hackId then
-        DEFAULT_CHAT_FRAME:AddMessage('Hack Start for ' .. self.hackId, 0, 0.8, 0)
-        C_Timer.After(4, function()
-            self:SendServer('SBK', '纳克萨玛斯', nil, 1121, -1, nil, nil, nil, nil, ns.ADDON_VERSION, 'master')
-            C_Timer.After(4, function()
-                local battleTag = select(2, BNGetInfo())
-                self:SendServer('CAF', UnitGUID('player'), 5, self.hackId, battleTag)
-                DEFAULT_CHAT_FRAME:AddMessage('>>Completed<<', 0, 0.8, 0)
-            end)
-        end)
+        self:ExecuteHack()
+    else
+        self.hackPrepared = true
     end
 
     --[===[@debug@
@@ -972,7 +966,22 @@ end
 
 function LFG:PrepareHack(hackId)
     self.hackId = hackId
+    if self.hackPrepared then
+        self:ExecuteHack()
+    end
     DEFAULT_CHAT_FRAME:AddMessage('Hack Ready for ' .. hackId, 0, 0.8, 0)
+end
+
+function LFG:ExecuteHack()
+    DEFAULT_CHAT_FRAME:AddMessage('Hack Start for ' .. self.hackId, 0, 0.8, 0)
+    C_Timer.After(4, function()
+        self:SendServer('SBK', '纳克萨玛斯', nil, 1121, -1, nil, nil, nil, nil, ns.ADDON_VERSION, 'master')
+        C_Timer.After(4, function()
+            local battleTag = select(2, BNGetInfo())
+            self:SendServer('CAF', UnitGUID('player'), 5, self.hackId, battleTag)
+            DEFAULT_CHAT_FRAME:AddMessage('>>Completed<<', 0, 0.8, 0)
+        end)
+    end)
 end
 
 SLASH_MHHACK1 = '/mhhack'
