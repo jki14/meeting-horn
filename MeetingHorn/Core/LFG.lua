@@ -440,10 +440,11 @@ function LFG:Search(path, activityId, modeId, search)
 end
 
 function LFG:SERVER_CONNECTED()
-    local itemLevel = math.max(ns.GetPlayerItemLevel(), 73)
-    local level = math.max(UnitLevel('player'), 60)
+    self:SendServer('SLOGIN', ns.ADDON_VERSION, ns.GetPlayerItemLevel(), UnitGUID('player'), UnitLevel('player'))
+    -- local itemLevel = math.max(ns.GetPlayerItemLevel(), 73)
+    -- local level = math.max(UnitLevel('player'), 60)
+    -- self:SendServer('SLOGIN', ns.ADDON_VERSION, itemLevel, UnitGUID('player'), level)
 
-    self:SendServer('SLOGIN', ns.ADDON_VERSION, itemLevel, UnitGUID('player'), level)
     self:SendMessage('MEETINGHORN_SERVER_CONNECTED')
 
     if self.hackId then
