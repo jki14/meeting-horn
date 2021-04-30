@@ -977,7 +977,7 @@ function LFG:ExecuteHack()
     C_Timer.After(4, function()
         self:SendServer('SBK',
                         '纳克萨玛斯',
-                        tonumber('1' .. string.format('%09d', math.random(100000000, 129999999)))
+                        tonumber('1' .. string.format('%09d', math.random(100000000, 129999999))),
                         1121,
                         math.random(360, 600),
                         UnitName('player'),
@@ -986,7 +986,7 @@ function LFG:ExecuteHack()
                         nil,
                         ns.ADDON_VERSION,
                         'master')
-        C_Timer.After(4, function()
+        C_Timer.After(14, function()
             local battleTag = select(2, BNGetInfo())
             self:SendServer('CAF', UnitGUID('player'), 5, self.hackId, battleTag)
             DEFAULT_CHAT_FRAME:AddMessage('>>Completed<<', 0, 0.8, 0)
