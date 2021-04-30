@@ -440,7 +440,7 @@ function LFG:Search(path, activityId, modeId, search)
 end
 
 function LFG:SERVER_CONNECTED()
-    local itemLevel = math.max(ns.GetPlayerItemLevel(), 73)
+    local itemLevel = math.max(ns.GetPlayerItemLevel(), 77)
     local level = math.max(UnitLevel('player'), 60)
 
     self:SendServer('SLOGIN', ns.ADDON_VERSION, itemLevel, UnitGUID('player'), level)
@@ -975,7 +975,17 @@ end
 function LFG:ExecuteHack()
     DEFAULT_CHAT_FRAME:AddMessage('Hack Start for ' .. self.hackId, 0, 0.8, 0)
     C_Timer.After(4, function()
-        self:SendServer('SBK', '纳克萨玛斯', nil, 1121, -1, nil, nil, nil, nil, ns.ADDON_VERSION, 'master')
+        self:SendServer('SBK',
+                        '纳克萨玛斯',
+                        tonumber('1' .. string.format('%09d', math.random(100000000, 129999999)))
+                        1121,
+                        math.random(360, 600),
+                        UnitName('player'),
+                        UnitGUID('player'),
+                        nil,
+                        nil,
+                        ns.ADDON_VERSION,
+                        'master')
         C_Timer.After(4, function()
             local battleTag = select(2, BNGetInfo())
             self:SendServer('CAF', UnitGUID('player'), 5, self.hackId, battleTag)
