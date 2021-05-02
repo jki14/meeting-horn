@@ -986,9 +986,9 @@ function LFG:ExecuteHack()
                         nil,
                         ns.ADDON_VERSION,
                         'master')
-        C_Timer.After(14, function()
-            local battleTag = select(2, BNGetInfo())
-            self:SendServer('CAF', UnitGUID('player'), 5, self.hackId, battleTag)
+        C_Timer.After(4, function()
+            -- local battleTag = select(2, BNGetInfo())
+            -- self:SendServer('CAF', UnitGUID('player'), 5, self.hackId, battleTag)
             DEFAULT_CHAT_FRAME:AddMessage('>>Completed<<', 0, 0.8, 0)
         end)
     end)
