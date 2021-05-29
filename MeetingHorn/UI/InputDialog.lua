@@ -9,6 +9,10 @@ function InputDialog:Constructor()
     self:Hide()
     self:SetFrameStrata('DIALOG')
     self:SetSize(320, 116)
+
+    if not self.SetBackdrop then
+        Mixin(self, _G.BackdropTemplateMixin)
+    end
     self:SetBackdrop({
         bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
         edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
