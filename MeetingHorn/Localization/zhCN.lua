@@ -10,6 +10,8 @@ L['Leader'] = '队长'
 L['Comment'] = '说明'
 L['Operation'] = '操作'
 
+L['LeaderQrCode'] = '二维码'
+L['Certification'] = '@'
 L['Activity'] = '活动类型'
 L['Activity Mode'] = '活动模式'
 L['Mode'] = '模式'
@@ -39,7 +41,9 @@ L['Feedback was submitted successfully.'] = '提交反馈成功。'
 L['Requires Level %s'] = '需要等级%s'
 L['Requires Class %s'] = '需要职业%s'
 L['Requires Zone City'] = '需要处于城市中'
-
+L['Announcement'] = '最新公告'
+L['MissionGuidance'] = '任务指引'
+L['Recruit members'] = '招募队员'
 -- 活动
 
 L.CATEGORY_QUEST = '任务'
@@ -115,7 +119,9 @@ L['CHANNEL: Port'] = '传送频道'
 L['CHANNEL: Trade'] = '交易'
 L['CHANNEL: Group'] = 'MeetingHorn'
 L['CHANNEL: Recruit'] = '公会招募'
-
+L['Arena (5v5)'] = '竞技场（5v5）'
+L['Arena (3v3)'] = '竞技场（3v3）'
+L['Arena (2v2)'] = '竞技场（2v2）'
 L['Wild PvP'] = '野外PvP'
 L['Dire Maul - North'] = '厄运之槌 - 北' -- 厄运之槌 - 北
 L['Dire Maul - West'] = '厄运之槌 - 西' -- 厄运之槌 - 西
@@ -127,6 +133,7 @@ L['Scarlet Monastery - Armory'] = '血色修道院 - 军械库' -- 血色修道�
 L['Scarlet Monastery - Library'] = '血色修道院 - 图书馆' -- 血色修道院 - 图书馆
 L['Scarlet Monastery - Graveyard'] = '血色修道院 - 墓地' -- 血色修道院 - 墓地
 
+L['Doomwalker'] = '末日行者' -- 末日行者
 L['Lord Kazzak'] = '卡扎克' -- 卡扎克
 L['Azuregos'] = '艾索雷葛斯' -- 艾索雷葛斯
 L['Ysondre'] = '伊森德雷' -- 伊森德雷
@@ -171,12 +178,23 @@ L['SHORT: Ragefire Chasm'] = '' -- 怒焰裂谷
 L['SHORT: Alterac Valley'] = '奥山' -- 奥特兰克山谷
 L['SHORT: Warsong Gulch'] = '战歌' -- 战歌峡谷
 L['SHORT: Arathi Basin'] = '阿拉希' -- 阿拉希盆地
+L['SHORT: Doomwalker'] = '' -- 末日行者
 L['SHORT: Lord Kazzak'] = '' -- 卡扎克
 L['SHORT: Azuregos'] = '蓝龙' -- 艾索雷葛斯
 L['SHORT: Ysondre'] = '' -- 伊森德雷
 L['SHORT: Taerar'] = '' -- 泰拉尔
 L['SHORT: Emeriss'] = '' -- 艾莫莉丝
 L['SHORT: Lethon'] = '' -- 莱索恩
+
+L.TIP_SUMMARY = [[1. 尽量和熟悉的团长一起游戏。
+2. 团长的个人信息越多，就越值得信任。
+3. 尽量不要在没拿到装备的时候产生任何交易。
+4. 一般来说，大公会的团长更值得依赖。
+5. 经常开团的团长装备不会太差。
+6. 如果您遇到了被黑金黑装备的情况，
+   请及时联系游戏内GM进行举报。]]
+
+L.TIP_TITLE = [[温馨提示：]]
 
 L['玛丁雷少校'] = true
 L['暴风城的城民和盟友们'] = true
@@ -224,3 +242,4 @@ L['Activities List'] = '活动列表'
 L['Current Activity'] = '当前活动'
 L['Last Activity'] = '往期活动'
 L['Last Activity %s'] = '往期活动%s'
+L['DialogCopyUrl'] = '请按<|cff00ff00Ctrl+C|r>复制网址到浏览器打开'
