@@ -10,6 +10,8 @@ L['Leader'] = 'Leader'
 L['Comment'] = 'Comment'
 L['Operation'] = 'Operation'
 
+L['LeaderQrCode'] = '二维码'
+L['Certification'] = '@'
 L['Activity'] = 'Activity'
 L['Activity Mode'] = 'Activity Mode'
 L['Mode'] = 'Mode'
@@ -39,7 +41,9 @@ L['Feedback was submitted successfully.'] = 'Feedback was submitted successfully
 L['Requires Level %s'] = 'Requires Level %s'
 L['Requires Class %s'] = 'Requires Class %s'
 L['Requires Zone City'] = 'Requires Zone City'
-
+L['Announcement'] = '最新公告'
+L['MissionGuidance'] = '任务指引'
+L['Recruit members'] = '招募队员'
 -- Activity
 
 L.CATEGORY_QUEST = 'Quest'
@@ -115,6 +119,30 @@ L['CHANNEL: Trade'] = 'Trade'
 L['CHANNEL: Group'] = 'MeetingHorn'
 L['CHANNEL: LFG'] = 'LookingForGroup'
 L['CHANNEL: Recruit'] = 'GuildRecruitment'
+L['Arena (5v5)'] = '竞技场（5v5）'
+L['Arena (3v3)'] = '竞技场（3v3）'
+L['Arena (2v2)'] = '竞技场（2v2）'
+L['Wild PvP'] = '野外PvP'
+L['Dire Maul - North'] = '厄运之槌 - 北' -- 厄运之槌 - 北
+L['Dire Maul - West'] = '厄运之槌 - 西' -- 厄运之槌 - 西
+L['Dire Maul - East'] = '厄运之槌 - 东' -- 厄运之槌 - 东
+L['Upper Blackrock Spire'] = '黑石塔上层' -- 黑石塔上层
+L['Lower Blackrock Spire'] = '黑石塔下层' -- 黑石塔下层
+L['Scarlet Monastery - Cathedral'] = '血色修道院 - 大教堂' -- 血色修道院 -
+大教堂
+L['Scarlet Monastery - Armory'] = '血色修道院 - 军械库' -- 血色修道院 - 军械库
+L['Scarlet Monastery - Library'] = '血色修道院 - 图书馆' -- 血色修道院 - 图书馆
+L['Scarlet Monastery - Graveyard'] = '血色修道院 - 墓地' -- 血色修道院 - 墓地
+
+L['Doomwalker'] = '末日行者' -- 末日行者
+L['Lord Kazzak'] = '卡扎克' -- 卡扎克
+L['Azuregos'] = '艾索雷葛斯' -- 艾索雷葛斯
+L['Ysondre'] = '伊森德雷' -- 伊森德雷
+L['Taerar'] = '泰拉尔' -- 泰拉尔
+L['Emeriss'] = '艾莫莉丝' -- 艾莫莉丝
+L['Lethon'] = '莱索恩' -- 莱索恩
+
+L['Ahn\'Qiraj Temple'] = '安其拉神殿'
 
 L['SHORT: Molten Core'] = 'MC' -- 熔火之心
 L['SHORT: Onyxia\'s Lair'] = '黑龙' -- 奥妮克希亚的巢穴
@@ -151,12 +179,23 @@ L['SHORT: Ragefire Chasm'] = '' -- 怒焰裂谷
 L['SHORT: Alterac Valley'] = '奥山' -- 奥特兰克山谷
 L['SHORT: Warsong Gulch'] = '战歌' -- 战歌峡谷
 L['SHORT: Arathi Basin'] = '阿拉希' -- 阿拉希盆地
+L['SHORT: Doomwalker'] = '' -- 末日行者
 L['SHORT: Lord Kazzak'] = '' -- 卡扎克
 L['SHORT: Azuregos'] = '蓝龙' -- 艾索雷葛斯
 L['SHORT: Ysondre'] = '' -- 伊森德雷
 L['SHORT: Taerar'] = '' -- 泰拉尔
 L['SHORT: Emeriss'] = '' -- 艾莫莉丝
 L['SHORT: Lethon'] = '' -- 莱索恩
+
+L.TIP_SUMMARY = [[1. 尽量和熟悉的团长一起游戏。
+2. 团长的个人信息越多，就越值得信任。
+3. 尽量不要在没拿到装备的时候产生任何交易。
+4. 一般来说，大公会的团长更值得依赖。
+5. 经常开团的团长装备不会太差。
+6. 如果您遇到了被黑金黑装备的情况，
+   请及时联系游戏内GM进行举报。]]
+
+L.TIP_TITLE = [[温馨提示：]]
 
 L['玛丁雷少校'] = true
 L['暴风城的城民和盟友们'] = true
@@ -192,9 +231,17 @@ L['ACTIVITY_NOT_FINISH'] = '任务尚未完成'
 L['ACTIVITY_REWARD_FETCHED '] = '任务奖励已领取'
 L['ACTIVITY_FETCH_REWARD_FAILED '] = '领取任务奖励失败'
 L['ACTIVITY_REWARD_OUT_OF_DATE'] = '任务奖励领取过期'
+L['ACTIVITY_INVALID_FETCH_CONDITION'] = '任务领取条件未达成'
+L['ADDON_UPDATED'] = '请更新至最新版本后参与挑战活动'
 
 L.CHALLENGE_RULES = [[●本次活动所有奖励均在插件上兑换领取，不安装插件的玩家将无法兑换相应的奖励；
 ●活动到期后，击杀或经验值将不再被计入本次活动。已完成活动目标的玩家，仍可以在2周内继续领取；
 ●同一种虚拟物品奖励，每个角色只能领取一次，不同挑战活动的不同虚拟物品奖励，每个角色达到挑战目标后都可以领取，不同角色可以重复参与活动并在达到挑战目标后领取对应的虚拟物品奖励；
 ●若在72小时内奖励并没有发放至游戏角色邮箱，请联系人工客服进行反馈；
 ●本次挑战活动由于数量较大，当您击杀Boss后，请点击进度条上的【刷新进度】按钮查看最新进度，刷新后每30分钟更新一次数据结果；]]
+
+L['Activities List'] = '活动列表'
+L['Current Activity'] = '当前活动'
+L['Last Activity'] = '往期活动'
+L['Last Activity %s'] = '往期活动%s'
+L['DialogCopyUrl'] = '请按<|cff00ff00Ctrl+C|r>复制网址到浏览器打开'

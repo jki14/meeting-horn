@@ -35,26 +35,27 @@ function Recent:Constructor()
     self.Members:SetColumnCount(3)
     self.Members:SetItemSpacing(3, 3)
     self.Members:SetCallback('OnItemFormatting', function(_, button, info)
-        button.Text:SetText(info.name)
+        button.Text:SetText(Ambiguate(info.name, 'none'))
         button.Text:SetTextColor(GetClassColor(info.class))
     end)
     self.Members:SetCallback('OnItemMenu', function(_, button, info)
+        local name = Ambiguate(info.name, 'none')
         ns.GUI:ToggleMenu(button, {
-            {text = RAID_CLASS_COLORS[info.class]:WrapTextInColorCode(info.name), isTitle = true}, {
+            {text = RAID_CLASS_COLORS[info.class]:WrapTextInColorCode(name), isTitle = true}, {
                 text = WHISPER,
                 func = function()
-                    ChatFrame_SendTell(info.name)
+                    ChatFrame_SendTell(name)
                 end,
             }, {
                 text = INVITE,
                 func = function()
-                    InviteToGroup(info.name)
+                    InviteToGroup(name)
                 end,
             }, {
 
                 text = ADD_FRIEND,
                 func = function()
-                    C_FriendList.AddFriend(info.name)
+                    C_FriendList.AddFriend(name)
                 end,
             }, {text = CANCEL},
         })
@@ -104,12 +105,12 @@ function Recent:UpdateInstances()
         end
     end
 
-    --[===[@debug@
+    --[[@debug@
     tinsert(menu, {text = 'Debug', value = -1})
     if not value then
         value = -1
     end
-    --@end-debug@]===]
+    --@end-debug@]]
 
     self.Instance:SetMenuTable(menu)
     self.Instance:SetValue(value)
@@ -121,7 +122,7 @@ function Recent:UpdateMembers()
 
     local r = {}
 
-    --[===[@debug@
+    --[[@debug@
     if id == -1 and not members then
         tinsert(r, {name = 'Test1', class = 'PALADIN'})
         tinsert(r, {name = 'Test2', class = 'MAGE'})
@@ -131,7 +132,7 @@ function Recent:UpdateMembers()
         tinsert(r, {name = 'Test6', class = 'SHAMAN'})
         tinsert(r, {name = 'Test7', class = 'HUNTER'})
     end
-    --@end-debug@]===]
+    --@end-debug@]]
 
     if members then
         for k, v in pairs(members) do
@@ -155,12 +156,12 @@ function Recent:UpdateQRCode()
     local id = self.Instance:GetValue()
     local members = ns.LFG:GetInstanceMembers(id)
 
-    --[===[@debug@
+    --[[@debug@
     if id == -1 and not members then
         members = {}
-        members.leader = UnitName('player')
+        members.leader = ns.UnitFullName('player')
     end
-    --@end-debug@]===]
+    --@end-debug@]]
 
     if members then
         self.QRCode:SetValue(ns.MakeQRCode(members.leader))

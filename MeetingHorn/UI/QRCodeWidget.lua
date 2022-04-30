@@ -1263,6 +1263,7 @@ function QRCodeWidget:SetValue(value)
 
     local ok, info = qrcode(value)
 
+    self.isCompleted = false
     self.info = info
     self.value = value
     self.size = #info
@@ -1283,10 +1284,15 @@ function QRCodeWidget:GetValue()
     return self.value
 end
 
+function QRCodeWidget:IsDone()
+    return self.isCompleted
+end
+
 function QRCodeWidget:Done()
     self:SetScript('OnUpdate', nil)
     self.CodeFrame:Show()
     self:SetText('')
+    self.isCompleted = true
 end
 
 function QRCodeWidget:Clear()
@@ -1356,7 +1362,7 @@ function QRCodeWidget:Refresh()
     if not self.value then
         return
     end
-    
+
     self.regionSize = self.CodeFrame:GetWidth() / self.size
     self.regionIndex = 0
     self.y = 1

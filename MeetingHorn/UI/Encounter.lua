@@ -75,6 +75,19 @@ function Encounter:Constructor()
     self.Panel3.Label:SetText('PC查看视频及站位请按<Ctrl+C>复制地址到浏览器打开')
 
     self:Open(ns.DEFAULT_ENCOUNTER_INSTANCE_ID)
+
+    self:SetScript('OnShow', self.OnShow)
+
+    self.LookFall:SetText('点击扫码查看副本掉落')
+    ns.ApplyLeaderBtnClick(self.LookFall, {
+        tip = '',
+        qrTexture = 'Interface/AddOns/MeetingHorn/Media/LookFall',
+        point = {'TOP', self.LookFall, 'BOTTOM', 0, -20},
+    })
+end
+
+function Encounter:OnShow()
+    ns.Stats:Send('EncounterOpen')
 end
 
 function Encounter:SetZoneFilter(zone)
