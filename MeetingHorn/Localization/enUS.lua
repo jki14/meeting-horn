@@ -4,27 +4,27 @@ if not L then
     return
 end
 
-L.ADDON_NAME = 'MeetingHorn'
+L.ADDON_NAME = '集结号'
 
-L['Leader'] = 'Leader'
-L['Comment'] = 'Comment'
-L['Operation'] = 'Operation'
+L['Leader'] = '队长'
+L['Comment'] = '说明'
+L['Operation'] = '操作'
 
 L['LeaderQrCode'] = '二维码'
 L['Certification'] = '@'
-L['Activity'] = 'Activity'
-L['Activity Mode'] = 'Activity Mode'
-L['Mode'] = 'Mode'
-L['Activity Comment'] = 'Activity Comment'
-L['Manage Activity'] = 'Manage Activity'
-L['Choice Activity...'] = 'Choice Activity...'
-L['Choice Mode...'] = 'Choice Mode...'
-L['Create Activity'] = 'Create Activity'
-L['Search Activity'] = 'Search Activity'
-L['Close Activity'] = 'Close Activity'
-L['Update Activity'] = 'Update Activity'
-L['Members'] = 'Members'
-L['Whisper'] = 'Whisper'
+L['Activity'] = '活动类型'
+L['Activity Mode'] = '活动模式'
+L['Mode'] = '模式'
+L['Activity Comment'] = '活动说明'
+L['Manage Activity'] = '管理活动'
+L['Choice Activity...'] = '选择活动类型...'
+L['Choice Mode...'] = '选择活动模式...'
+L['Create Activity'] = '创建活动'
+L['Search Activity'] = '查找活动'
+L['Close Activity'] = '解散活动'
+L['Update Activity'] = '更新活动'
+L['Members'] = '队伍人数'
+L['Whisper'] = '密语'
 L['Encounter'] = '冒险指南'
 L['Recent members'] = '最近队友'
 L['Instance Name'] = '副本名称'
@@ -33,92 +33,92 @@ L['职责攻略'] = true
 L['技能'] = true
 L['Challenge'] = '挑战活动'
 
-L['Help'] = 'Help'
-L['Manage'] = 'Manage'
-L['Chat Record'] = 'Chat Record'
-L['Feedback'] = 'Feedback'
-L['Feedback was submitted successfully.'] = 'Feedback was submitted successfully.'
-L['Requires Level %s'] = 'Requires Level %s'
-L['Requires Class %s'] = 'Requires Class %s'
-L['Requires Zone City'] = 'Requires Zone City'
+L['Help'] = '帮助'
+L['Manage'] = '管理'
+L['Chat Record'] = '聊天记录'
+L['Feedback'] = '用户反馈'
+L['Feedback was submitted successfully.'] = '提交反馈成功。'
+L['Requires Level %s'] = '需要等级%s'
+L['Requires Class %s'] = '需要职业%s'
+L['Requires Zone City'] = '需要处于城市中'
 L['Announcement'] = '最新公告'
 L['MissionGuidance'] = '任务指引'
 L['Recruit members'] = '招募队员'
--- Activity
+-- 活动
 
-L.CATEGORY_QUEST = 'Quest'
-L.CATEGORY_RAID = 'Raid'
-L.CATEGORY_DUNGEON = 'Dungeon'
-L.CATEGORY_BOSS = 'WorldBoss'
+L.CATEGORY_QUEST = '任务'
+L.CATEGORY_RAID = '团队副本'
+L.CATEGORY_DUNGEON = '地下城'
+L.CATEGORY_BOSS = '世界首领'
 L.CATEGORY_PVP = 'PvP'
-L.CATEGORY_PORT = 'Port'
-L.CATEGORY_SUMMON = 'Summon'
-L.CATEGORY_RECRUIT = 'Recruit'
+L.CATEGORY_PORT = '传送门'
+L.CATEGORY_SUMMON = '召唤仪式'
+L.CATEGORY_RECRUIT = '招募'
 
-L.SUMMARY_NEW_VERSION = [[|cff00ffff%s|r:
-The new version found: %s
-Please consider download from: %s]]
+L.SUMMARY_NEW_VERSION = [[|cff00ffff%s|r：
+发现新版本：%s，请及时下载更新
+下载链接：%s]]
 
--- L['Quest'] = 'Quest'
--- L['Raid'] = 'Raid'
--- L['Dungeon'] = 'Dungeon'
--- L['Boss'] = 'Boss'
+-- L['Quest'] = '任务'
+-- L['Raid'] = '团队副本'
+-- L['Dungeon'] = '地下城'
+-- L['Boss'] = '世界首领'
 -- L['PvP'] = true
--- L['Trade'] = 'Trade'
+-- L['Trade'] = '交易'
 
-L['Sell'] = 'Sell'
-L['Buy'] = 'Buy'
+L['Sell'] = '出售'
+L['Buy'] = '购买'
 
-L['<Double-Click> Whisper to player'] = '<Double-Click> Whisper to player'
-L['<Right-Click> Open activity menu'] = '<Right-Click> Open activity menu'
-L['(Include channel message)'] = '(Include channel message)'
-L['Applicanted'] = 'Applicanted'
+L['<Double-Click> Whisper to player'] = '<双击>密语'
+L['<Right-Click> Open activity menu'] = '<右键>打开活动菜单'
+L['(Include channel message)'] = '(包含频道聊天)'
+L['Applicanted'] = '已申请'
 
-L['|cff00ffff%s|r instance already exists, continue to create?'] = '|cff00ffff%s|r instance already exists, continue to create?'
-L['Update activity success.'] = 'Update activity success.'
-L['Create acitivty success.'] = 'Create acitivty success.'
-L['Activity closed.'] = 'Activity closed.'
-L['There are no activity, please try searching.'] = 'There are no activity, please try searching.'
-L['Receiving active data, please wait patiently'] = 'Receiving active data, please wait patiently'
+L['|cff00ffff%s|r instance already exists, continue to create?'] = '|cff00ffff%s|r进度已存在，继续创建？'
+L['Update activity success.'] = '更新活动成功。'
+L['Create acitivty success.'] = '创建活动成功。'
+L['Activity closed.'] = '活动已解散。'
+L['There are no activity, please try searching.'] =
+    '当前没有集结号活动，\n请尝试在上方搜索框中直接搜索关键字。'
+L['Receiving active data, please wait patiently'] = '正在接收活动数据，请耐心等待 ...'
 
-L['Applicant Count'] = 'Applicant Count'
-L['Application Count'] = 'Application Count'
-L['Activity Count'] = 'Activity Count'
+L['Applicant Count'] = '申请人数'
+L['Application Count'] = '申请中活动'
+L['Activity Count'] = '活动总数'
 
-L['Toggle MeetingHorn'] = 'Toggle MeetingHorn'
-L['Toggle MeetingHorn key binding'] = 'Toggle MeetingHorn key binding'
-L['按键已绑定到|cffffd100%s|r，你确定要覆盖吗？'] = 'Key binding has been settle on |cffffd100%s|r, confirm to override?'
+L['Toggle MeetingHorn'] = '打开/关闭集结号'
+L['Toggle MeetingHorn key binding'] = '打开/关闭集结号快捷键'
+L['按键已绑定到|cffffd100%s|r，你确定要覆盖吗？'] = true
 
-L['Options'] = 'Options'
-L['启用关键字过滤'] = 'Enable Keywords Filter'
-L['关键字过滤'] = 'Keywords Filter'
-L['导入'] = 'Import'
-L['导出'] = 'Export'
-L['导入关键字'] = 'Import Keywords'
-L['导出关键字'] = 'Export Keywords'
-L['请输入需要屏蔽的关键字'] = 'Keywords Blacklist'
-L['匹配?'] = 'Match?'
-L['添加失败，关键字错误。'] = 'Failed: Invalid Keyword'
-L['添加失败，关键字“%s”已存在。'] = 'Failed: Keyword "%s" exists'
-L['添加成功，关键字“%s”已添加。'] = 'Succeed: Keyword "%s" added'
-L['删除失败，关键字错误。'] = 'Failed: Invalid Keyword'
-L['删除失败，关键字“%s”不存在。'] = 'Failed: Keyword "%s" does not exist'
-L['删除成功，关键字“%s”已删除。'] = 'Succeed: Keyword "%s" removed'
+L['Options'] = '设置'
+L['启用关键字过滤'] = true
+L['关键字过滤'] = true
+L['导入'] = true
+L['导出'] = true
+L['导入关键字'] = true
+L['导出关键字'] = true
+L['请输入需要屏蔽的关键字'] = true
+L['匹配?'] = true
+L['添加失败，关键字错误。'] = true
+L['添加失败，关键字“%s”已存在。'] = true
+L['添加成功，关键字“%s”已添加。'] = true
+L['删除失败，关键字错误。'] = true
+L['删除失败，关键字“%s”不存在。'] = true
+L['删除成功，关键字“%s”已删除。'] = true
 
-L['Show data broker'] = 'Show data broker'
-L['Hide activity in chat frame'] = 'Hide activity in chat frame'
+L['Show data broker'] = '显示悬浮窗'
+L['Hide activity in chat frame'] = '隐藏聊天窗口内的集结号活动'
 
-L.HELP_COMMENT = [[|cffffd100HELP|r
-1. It takes time to collate data when MeetingHorn activates, please be patient.
-2. MeetingHorn keeps receiving new activities without updating existed ones during the mouseover.
-3. The filter allows blocking specific activities, leaders, and Lua matching.
-4. It is possible to show or hide the floating frame, and trigger key binding is allowed.]]
+L.HELP_COMMENT = [[|cffffd100使用说明|r
+1. 集结号刚打开的时候是有短暂收集数据的时间，还请您耐心等待。
+2. 鼠标悬浮在插件上是只接受不刷新活动的，当你鼠标离开插件区域时活动将继续刷新。
+3. 如果遇到不喜欢看到的活动或者团长，您可以在设置中添加屏蔽功能，屏蔽功能支持Lua匹配模式。
+4. 在设置中可以添加或者隐藏集结号的悬浮窗，同样也可以设置快捷键快速调出集结号界面。]]
 
 L['CHANNEL: Port'] = '传送频道'
-L['CHANNEL: Trade'] = 'Trade'
+L['CHANNEL: Trade'] = '交易'
 L['CHANNEL: Group'] = 'MeetingHorn'
-L['CHANNEL: LFG'] = 'LookingForGroup'
-L['CHANNEL: Recruit'] = 'GuildRecruitment'
+L['CHANNEL: Recruit'] = '公会招募'
 L['Arena (5v5)'] = '竞技场（5v5）'
 L['Arena (3v3)'] = '竞技场（3v3）'
 L['Arena (2v2)'] = '竞技场（2v2）'
@@ -128,8 +128,7 @@ L['Dire Maul - West'] = '厄运之槌 - 西' -- 厄运之槌 - 西
 L['Dire Maul - East'] = '厄运之槌 - 东' -- 厄运之槌 - 东
 L['Upper Blackrock Spire'] = '黑石塔上层' -- 黑石塔上层
 L['Lower Blackrock Spire'] = '黑石塔下层' -- 黑石塔下层
-L['Scarlet Monastery - Cathedral'] = '血色修道院 - 大教堂' -- 血色修道院 -
-大教堂
+L['Scarlet Monastery - Cathedral'] = '血色修道院 - 大教堂' -- 血色修道院 - 大教堂
 L['Scarlet Monastery - Armory'] = '血色修道院 - 军械库' -- 血色修道院 - 军械库
 L['Scarlet Monastery - Library'] = '血色修道院 - 图书馆' -- 血色修道院 - 图书馆
 L['Scarlet Monastery - Graveyard'] = '血色修道院 - 墓地' -- 血色修道院 - 墓地
@@ -218,10 +217,8 @@ L['沐浴在我的力量中吧'] = true
 L['二维码尺寸过小'] = true
 L['加载中'] = true
 
-L['欢迎来到%s，打开集结号查看|cff47e53d|Hmeetinghornencounter:%s|h[Boss击杀攻略]|r。']
-= true
-L['你在与[%s]的战斗中阵亡，|cff00ffff|Hmeetinghornencounter:%s:%s:%s|h[点击查看Boss攻略]|h|r。']
-= true
+L['欢迎来到%s，打开集结号查看|cff47e53d|Hmeetinghornencounter:%s|h[Boss击杀攻略]|r。'] = true
+L['你在与[%s]的战斗中阵亡，|cff00ffff|Hmeetinghornencounter:%s:%s:%s|h[点击查看Boss攻略]|h|r。'] = true
 L['近战输出者预警'] = true
 L['远程输出者预警'] = true
 
@@ -234,7 +231,8 @@ L['ACTIVITY_REWARD_OUT_OF_DATE'] = '任务奖励领取过期'
 L['ACTIVITY_INVALID_FETCH_CONDITION'] = '任务领取条件未达成'
 L['ADDON_UPDATED'] = '请更新至最新版本后参与挑战活动'
 
-L.CHALLENGE_RULES = [[●本次活动所有奖励均在插件上兑换领取，不安装插件的玩家将无法兑换相应的奖励；
+L.CHALLENGE_RULES =
+    [[●本次活动所有奖励均在插件上兑换领取，不安装插件的玩家将无法兑换相应的奖励；
 ●活动到期后，击杀或经验值将不再被计入本次活动。已完成活动目标的玩家，仍可以在2周内继续领取；
 ●同一种虚拟物品奖励，每个角色只能领取一次，不同挑战活动的不同虚拟物品奖励，每个角色达到挑战目标后都可以领取，不同角色可以重复参与活动并在达到挑战目标后领取对应的虚拟物品奖励；
 ●若在72小时内奖励并没有发放至游戏角色邮箱，请联系人工客服进行反馈；
