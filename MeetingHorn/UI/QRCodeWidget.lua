@@ -1362,7 +1362,7 @@ function QRCodeWidget:Refresh()
     if not self.value then
         return
     end
-
+    
     self.regionSize = self.CodeFrame:GetWidth() / self.size
     self.regionIndex = 0
     self.y = 1
