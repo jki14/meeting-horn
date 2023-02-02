@@ -415,6 +415,7 @@ function LFG:Search(path, activityId, modeId, search)
 
     if search then
         search = search:lower()
+        search = ns.PrepareSearch(search)
     end
 
     if activityId then
@@ -440,11 +441,13 @@ function LFG:Search(path, activityId, modeId, search)
 end
 
 function LFG:SERVER_CONNECTED()
-    self:SendServer('SLOGIN', ns.ADDON_VERSION, ns.GetPlayerItemLevel(), UnitGUID('player'), UnitLevel('player'), ns.GetAddonSource())
+    self:SendServer('SLOGIN', ns.ADDON_VERSION, ns.GetPlayerItemLevel(), UnitGUID('player'), UnitLevel('player'),
+                    ns.GetAddonSource())
     self:SendMessage('MEETINGHORN_SERVER_CONNECTED')
 
     --[[@debug@
-    print('Connected', ns.ADDON_VERSION, ns.GetPlayerItemLevel(), UnitGUID('player'), UnitLevel('player'), ns.GetAddonSource())
+    print('Connected', ns.ADDON_VERSION, ns.GetPlayerItemLevel(), UnitGUID('player'), UnitLevel('player'),
+          ns.GetAddonSource())
     --@end-debug@]]
 end
 
@@ -739,7 +742,7 @@ function LFG:RAID_INSTANCE_WELCOME()
                instanceInfo.title, instanceId)
 end
 
-function LFG:ENCOUNTER_END(_, bossId, _, _, _, success)
+function LFG:ENCOUNTER_END(_, bossId, bossName, difficultyId, groupSize, success)
     if success == 1 then
         RequestRaidInfo()
 
@@ -755,14 +758,10 @@ function LFG:ENCOUNTER_END(_, bossId, _, _, _, success)
             looterGUID = nil
         end
 
-        local toCN = {}
-        toCN['Naxxramas'] = '纳克萨玛斯'
-        local raidNameCN = toCN[raidName] or raidName
-
         C_Timer.After(5, function()
             local id = ns.GetRaidId(raidName)
-            self:SendServer('SBK', raidNameCN, id, bossId, timeDiff, leaderName, leaderGUID, looterName, looterGUID,
-                            ns.ADDON_VERSION, lootMethod)
+            self:SendServer('SBK', raidName, id, bossId, timeDiff, leaderName, leaderGUID, looterName, looterGUID,
+                            ns.ADDON_VERSION, lootMethod, difficultyId or -1, groupSize)
             self:SaveInstanceMembers(id)
         end)
     elseif self.youDead then
@@ -775,6 +774,7 @@ function LFG:ENCOUNTER_END(_, bossId, _, _, _, success)
     end
     self.youDead = nil
     self.currentBossId = nil
+    self:UnregisterEvent('COMBAT_LOG_EVENT_UNFILTERED')
 end
 
 function LFG:GetInstanceMembers(id)
@@ -904,5 +904,5 @@ end
 --@end-classic@]]
 
 function LFG:ANNOUNCEMENT(eventName, ...)
-    self:SendMessage("MEETINGHORN_ANNOUNCEMENT", ...)
+    self:SendMessage('MEETINGHORN_ANNOUNCEMENT', ...)
 end

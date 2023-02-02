@@ -191,7 +191,7 @@
                     <Button parentKey="Quick4" inherits="MeetingHornQuickTemplate">
                         <Size x="35" y="22"/>
                         <Anchors>
-                            <Anchor point="BOTTOMLEFT" relativeKey="$parent.Quick1" relativePoint="TOPLEFT" x="0" y="0"/>
+                            <Anchor point="LEFT" relativeKey="$parent.Quick3" relativePoint="RIGHT" x="5" y="0"/>
                         </Anchors>
                     </Button>
                     <Button parentKey="Quick5" inherits="MeetingHornQuickTemplate">
@@ -203,13 +203,37 @@
                     <Button parentKey="Quick6" inherits="MeetingHornQuickTemplate">
                         <Size x="35" y="22"/>
                         <Anchors>
-                            <Anchor point="LEFT" relativeKey="$parent.Quick5" relativePoint="RIGHT" x="5" y="0"/>
+                            <Anchor point="BOTTOMLEFT" relativeKey="$parent.Quick1" relativePoint="TOPLEFT" x="0" y="0"/>
+                        </Anchors>
+                    </Button>
+                    <Button parentKey="Quick7" inherits="MeetingHornQuickTemplate">
+                        <Size x="35" y="22"/>
+                        <Anchors>
+                            <Anchor point="LEFT" relativeKey="$parent.Quick6" relativePoint="RIGHT" x="5" y="0"/>
+                        </Anchors>
+                    </Button>
+                    <Button parentKey="Quick8" inherits="MeetingHornQuickTemplate">
+                        <Size x="35" y="22"/>
+                        <Anchors>
+                            <Anchor point="LEFT" relativeKey="$parent.Quick7" relativePoint="RIGHT" x="5" y="0"/>
+                        </Anchors>
+                    </Button>
+                    <Button parentKey="Quick9" inherits="MeetingHornQuickTemplate">
+                        <Size x="35" y="22"/>
+                        <Anchors>
+                            <Anchor point="LEFT" relativeKey="$parent.Quick8" relativePoint="RIGHT" x="5" y="0"/>
+                        </Anchors>
+                    </Button>
+                    <Button parentKey="Quick10" inherits="MeetingHornQuickTemplate">
+                        <Size x="35" y="22"/>
+                        <Anchors>
+                            <Anchor point="LEFT" relativeKey="$parent.Quick9" relativePoint="RIGHT" x="5" y="0"/>
                         </Anchors>
                     </Button>
                     <Button parentKey="Refresh" inherits="UIPanelButtonTemplate" text="REFRESH">
                         <Size x="60" y="22"/>
                         <Anchors>
-                            <Anchor point="LEFT" relativeKey="$parent.Quick6" relativePoint="RIGHT" x="10" y="-1"/>
+                            <Anchor point="LEFT" relativeKey="$parent.Quick10" relativePoint="RIGHT" x="10" y="-1"/>
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY" textureSubLevel="1">
@@ -292,16 +316,16 @@
                             </Anchors>
                         </ButtonText>
                     </Button>
-                    <Button parentKey="ApplyLeaderBtn" inherits="UIPanelButtonTemplate">
+                    <Button parentKey="ApplyLeaderBtn" inherits="MagicButtonTemplate">
                         <Size x="120" y="22"/>
                         <Anchors>
-                            <Anchor point="BOTTOMRIGHT" x="-20" y="-22"/>
+                            <Anchor point="BOTTOMRIGHT" x="0" y="-22"/>
                         </Anchors>
                     </Button>
-                    <Button parentKey="RechargeBtn" inherits="UIPanelButtonTemplate">
+                    <Button parentKey="RechargeBtn" inherits="MagicButtonTemplate">
                         <Size x="120" y="22"/>
                         <Anchors>
-                            <Anchor relativeKey="$parent.ApplyLeaderBtn" relativePoint="LEFT" point="RIGHT"/>
+                            <Anchor point="RIGHT" relativeKey="$parent.ApplyLeaderBtn" relativePoint="LEFT"/>
                         </Anchors>
                     </Button>
                 </Frames>
@@ -565,7 +589,7 @@
             </Frame>
             <Frame parentKey="MissionGuidance" hidden="true" inherits="MissionGuidanceTemplate">
                 <Anchors>
-                    <Anchor point="TOPLEFT" x="4" y="-65"/>
+                    <Anchor point="TOPLEFT" x="4" y="-95"/>
                     <Anchor point="BOTTOMRIGHT" x="-6" y="6"/>
                 </Anchors>
             </Frame>
@@ -1281,7 +1305,6 @@
                     <Anchor point="BOTTOMRIGHT" x="-6" y="26"/>
                 </Anchors>
             </Frame>
-
             <Frame parentKey="Options">
                 <Anchors>
                     <Anchor point="TOPLEFT" x="4" y="-80"/>
@@ -1409,7 +1432,7 @@
                 </Anchors>
                 <Layers>
                     <Layer level="ARTWORK">
-                        <FontString inherits="GameFontNormalHuge2" text="请更新至最新版本后参与挑战活动">
+                        <FontString parentKey="Text" inherits="GameFontNormalHuge2">
                             <Anchors>
                                 <Anchor point="TOP" relativePoint="CENTER" x="0" y="-5"/>
                             </Anchors>

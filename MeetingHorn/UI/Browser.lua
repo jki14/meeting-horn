@@ -53,17 +53,20 @@ function Browser:Constructor()
         GameTooltip:Show()
     end)
     self.IconTip:SetScript('OnLeave', GameTooltip_Hide)
-    self.ApplyLeaderBtn:SetText(L['申请星团长'])
-    ns.ApplyLeaderBtnClick(self.ApplyLeaderBtn)
     ns.GUI:GetClass('Dropdown'):Bind(self.Activity)
     ns.GUI:GetClass('Dropdown'):Bind(self.Mode)
 
-    self.RechargeBtn:SetText(L['直充专区'])
-    ns.ApplyLeaderBtnClick(self.ApplyLeaderBtn,{
-        tip = "支付宝/微信扫码登录充值更便捷时时有特惠",
-        qrTexture = 'Interface/AddOns/MeetingHorn/Media/RechargeQR',
-        clickTarget = self.RechargeBtn,
-        height = 235
+    ns.ApplyImageButton(self.ApplyLeaderBtn, {
+        text = '申请星团长',
+        summary = '微信扫码 申请星团长',
+        texture = [[Interface/AddOns/MeetingHorn/Media/ApplyLeaderQR]],
+        points = {'BOTTOMLEFT', self, 'BOTTOMRIGHT', 5, -25},
+    })
+    ns.ApplyImageButton(self.RechargeBtn, {
+        text = '直充专区',
+        summary = '支付宝/微信扫码登录充值更便捷时时有特惠',
+        texture = [[Interface/AddOns/MeetingHorn/Media/RechargeQR]],
+        points = {'BOTTOMLEFT', self, 'BOTTOMRIGHT', 5, -25},
     })
 
     local function Search()
@@ -71,55 +74,76 @@ function Browser:Constructor()
     end
 
     local function QuickButtonOnClick(button)
-        self.Activity:SetValue(button.id)
+        if button.id then
+            self.Activity:SetValue(button.id)
+        elseif button.search then
+            self.Input:SetText(button.search)
+        end
     end
 
-    ---@param button Button
-    local function SetupQuickButton(button, mapIdOrName)
+    local index = 1
+    local function AllocQuick()
+        local button = self.quicks[index]
+        index = index + 1
+        return button
+    end
+
+    local function SetupQuickButton(search)
+        local button = AllocQuick()
         local id
-        if type(mapIdOrName) == 'number' then
-            mapIdOrName = C_Map.GetAreaInfo(mapIdOrName)
+        if type(search) == 'number' then
+            local mapName = C_Map.GetAreaInfo(search)
+            id = ns.NameToId(mapName) or ns.MatchId(mapName)
+
+            local data = ns.GetActivityData(id)
+            if data then
+                search = data.shortName or data.name
+                search = search:gsub('（.+）', '')
+            end
         end
-        id = ns.NameToId(mapIdOrName)
-        local data = ns.GetActivityData(id)
-        button:SetText(data.shortName or data.name)
+
+        button:SetText(search)
         button:SetWidth(button:GetTextWidth())
         button:SetScript('OnClick', QuickButtonOnClick)
         button:Show()
         button.id = id
-    end
-    local forbidCallBack = false
-    local function SetupQuickButton2(button, name)
-        local matchInfo = ns.GetMatchSearch(name) or {}
-        button:SetText(matchInfo.name or name)
-        button:SetWidth(button:GetTextWidth())
-        button:SetScript('OnClick', function()
-            forbidCallBack = true
-            self.Activity:SetValue(matchInfo.activityId)
-            self.Input:SetText(matchInfo.input or '')
-            self:Search()
-            forbidCallBack = false
-        end)
-        button:Show()
+        button.search = search
     end
 
     --[=[@classic@
-    SetupQuickButton(self.Quick1, 2717)
-    SetupQuickButton(self.Quick2, 1977)
-    SetupQuickButton(self.Quick3, 2677)
-    SetupQuickButton(self.Quick4, 3429)
-    SetupQuickButton(self.Quick5, 3428)
-    SetupQuickButton(self.Quick6, 3456)
+    SetupQuickButton(2717)
+    SetupQuickButton(1977)
+    SetupQuickButton(2677)
+    SetupQuickButton(3429)
+    SetupQuickButton(3428)
+    SetupQuickButton(3456)
     --@end-classic@]=]
 
-    -- @bcc@
-    SetupQuickButton(self.Quick1, 3607)
-    SetupQuickButton(self.Quick2, 3845)
-    SetupQuickButton2(self.Quick3, L['5H'])
-    SetupQuickButton(self.Quick4, 3457)
-    SetupQuickButton(self.Quick5, 3836)
-    SetupQuickButton(self.Quick6, 3923)
-    -- @end-bcc@
+    --[=[@bcc@
+    SetupQuickButton(4075)
+    SetupQuickButton(3959)
+    SetupQuickButton(3805)
+    SetupQuickButton(3606)
+    SetupQuickButton(3845)
+    SetupQuickButton(3607)
+    SetupQuickButton(3457)
+    SetupQuickButton(3923)
+    SetupQuickButton(3836)
+    SetupQuickButton('5H')
+    --@end-bcc@]=]
+
+    -- @lkc@
+    SetupQuickButton('5H')
+    SetupQuickButton('NAXX')
+    SetupQuickButton('ULD')
+    SetupQuickButton('TOC')
+    SetupQuickButton('ICC')
+    SetupQuickButton('OS')
+    SetupQuickButton('EOE')
+    SetupQuickButton('宝库')
+    SetupQuickButton('黑龙')
+    SetupQuickButton('红玉')
+    -- @end-lkc@
 
     self.Activity:SetMenuTable(ns.ACTIVITY_FILTER_MENU)
     self.Activity:SetDefaultText(ALL)
@@ -164,10 +188,16 @@ function Browser:Constructor()
         button.Comment:SetWidth(item:IsActivity() and 290 or 360)
         --@end-classic@]=]
 
-        -- @bcc@
-        button.Icon:SetShown(item:IsCertification())
+        -- @lkc@
+        if item:GetCertificationLevel() then
+            button.Icon:SetTexture(string.format([[Interface\AddOns\MeetingHorn\Media\certification_icon_%d]],
+                                                 item:GetCertificationLevel()))
+            button.Icon:SetShown(true)
+        else
+            button.Icon:SetShown(false)
+        end
         button.Comment:SetWidth(item:IsActivity() and 250 or 320)
-        -- @end-bcc@
+        -- @end-lkc@
         local members = item:GetMembers()
         if members then
             members = format('%d/%d', members, item.data.members)
@@ -289,7 +319,6 @@ function Browser:Constructor()
     self.Header5:SetWidth(290)
     --@end-classic@]=]
 
-
 end
 
 function Browser:OnShow()
@@ -322,9 +351,9 @@ function Browser:UpdateProgress()
         self.ProgressBar:SetValue(0)
     end
 
-    -- @bcc@
+    -- @lkc@
     self.IconTip:SetShown(not self.ProgressBar:IsShown())
-    -- @end-bcc@
+    -- @end-lkc@
 end
 
 function Browser:OnClick(id)
@@ -340,14 +369,19 @@ end
 function Browser:Sort()
     local sortCall = function()
         sort(self.ActivityList:GetItemList(), function(a, b)
-            -- @bcc@
-            if a:IsCertification() ~= b:IsCertification() then
-                return a:IsCertification()
+            -- @lkc@
+            local acl, bcl = a:GetCertificationLevel(), b:GetCertificationLevel()
+            if acl or bcl then
+                if acl and bcl then
+                    return acl > bcl
+                else
+                    return acl
+                end
             end
             if not self.sortId then
                 return false
             end
-            -- @end-bcc@
+            -- @end-lkc@
             local aid, bid = a:GetActivityId(), b:GetActivityId()
             if aid == bid then
                 return a:GetTick() < b:GetTick()
@@ -368,9 +402,9 @@ function Browser:Sort()
         self.ActivityList:Refresh()
     end
 
-    -- @bcc@
+    -- @lkc@
     sortCall()
-    -- @end-bcc@
+    -- @end-lkc@
     if self.sortId then
         --[=[@classic@
         sortCall()
@@ -399,16 +433,11 @@ function Browser:Search()
     local modeId = self.Mode:GetValue()
     local search = self.Input:GetText()
     local path, activityId
-    local matchInfo = ns.GetMatchSearch(search)
 
     if type(activityFilter) == 'string' then
         path = activityFilter
     else
         activityId = activityFilter
-    end
-
-    if matchInfo then
-        search = matchInfo.search
     end
 
     local result = ns.LFG:Search(path, activityId, modeId, search)
@@ -478,33 +507,14 @@ function Browser:CreateActivityMenu(activity)
                 end
             end,
         }, {isSeparator = true}, {text = REPORT_PLAYER, isTitle = true}, {
-            text = REPORT_SPAMMING,
+            text = REPORT_CHAT,
             func = function()
-                PlayerReportFrame:InitiateReport(PLAYER_REPORT_TYPE_SPAM, activity:GetLeader(),
-                                                 activity:GetLeaderPlayerLocation())
-                ns.GUI:CloseMenu()
-            end,
-        }, {
-            text = REPORT_BAD_LANGUAGE,
-            func = function()
-                PlayerReportFrame:InitiateReport(PLAYER_REPORT_TYPE_LANGUAGE, activity:GetLeader(),
-                                                 activity:GetLeaderPlayerLocation())
-                ns.GUI:CloseMenu()
-            end,
-        }, {
-            text = REPORT_BAD_NAME,
-            func = function()
-                PlayerReportFrame:InitiateReport(PLAYER_REPORT_TYPE_BAD_PLAYER_NAME, activity:GetLeader(),
-                                                 activity:GetLeaderPlayerLocation())
-                ns.GUI:CloseMenu()
-            end,
-        }, {
-            text = REPORT_CHEATING,
-            func = function()
-                HelpFrame_ShowReportCheatingDialog(activity:GetLeaderPlayerLocation())
+                local reportInfo = ReportInfo:CreateReportInfoFromType(Enum.ReportType.Chat)
+                local leader = activity:GetLeader()
+                print(leader)
+                ReportFrame:InitiateReport(reportInfo, leader, activity:GetLeaderPlayerLocation())
                 ns.GUI:CloseMenu()
             end,
         }, {isSeparator = true}, {text = CANCEL},
     }
 end
-
