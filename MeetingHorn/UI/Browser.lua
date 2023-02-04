@@ -183,7 +183,9 @@ function Browser:Constructor()
         button.Leader:SetText(item:GetLeader())
         button.Comment:SetText(item:GetComment())
         button.Mode:SetText(item:GetMode())
-        button.Leader:SetTextColor(GetClassColor(item:GetLeaderClass()))
+        -- button.Leader:SetTextColor(GetClassColor(item:GetLeaderClass()))
+        local r, g, b, _ = GetClassColor(item:GetLeaderClass())
+        button.Leader:SetTextColor(r, g, b, 1)
         --[=[@classic@
         button.Comment:SetWidth(item:IsActivity() and 290 or 360)
         --@end-classic@]=]
